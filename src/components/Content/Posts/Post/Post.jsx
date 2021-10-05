@@ -1,14 +1,15 @@
 import React from 'react'
 import st from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={st.post}>
-            <div className={st.preview} > </div>
+            <div className={st.preview} >
+                <img src={props.imageLink} />
+            </div>
             <div className={st.postContext}>
-            <h1>Time managment</h1>
-                <p>sdfsdfdsfdsf dfsdfsdfsdd dsfsdfsdfsddf dsf sdfsdf sdf ddfdsfsdfd sdfsdfsdfds dsfsdfsdf sdfsdfsdf s
-                    sdfsdfdsdf dsfdfsdf sdfsdfsdf dsfsdfsddf</p>
+            <h1>{props.heading}</h1>
+                <p>{props.postDescription}</p>
                 <br />
                 <button>Read more</button>
             </div>

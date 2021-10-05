@@ -10,8 +10,12 @@
 
 .preview {
     grid-area: preview;
-    background-size: cover;
-    background-image: url("http://www.touro.edu/media/touro-college/communications/images/featured/2020/timemanagement.jpg");
+
+}
+
+.preview img {
+    width: 250px;
+    height: 250px;
 }
 
 .postContext {
