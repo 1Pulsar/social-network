@@ -3,7 +3,9 @@ import st from './UserInfo.module.css'
 
 const UserInfo = () => {
     return (
-        <div></div>
+        <div className={st.infoBlock}>
+
+        </div>
     )
 }
 

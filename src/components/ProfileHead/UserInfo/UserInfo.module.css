@@ -1,0 +1,7 @@
+.infoBlock {
+    grid-area: u;
+    background-image: url("https://i.redd.it/wdpdo1h7vzh51.jpg");
+    background-size: cover;
+    background-clip: content-box;
+    background-position: 0 -100px;
+}

@@ -3,7 +3,7 @@ import st from './Posts.module.css'
 
 const Posts = () => {
     return (
-        <div>
+        <div className={st.posts}>
         </div>
     )
 }

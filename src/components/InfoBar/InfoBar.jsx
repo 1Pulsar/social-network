@@ -3,7 +3,7 @@ import st from './InfoBar.module.css'
 
 const InfoBar = () => {
     return (
-        <div>
+        <div className={st.infoBar}>
         </div>
     )
 }
