@@ -7,9 +7,15 @@
 }
 
 .item {
-    border: darkgrey solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 15%;
     height: 100%;
-    text-align: center;
-    margin-right: 5px;
+    transition: background-color .5s ease;
+
+}
+
+.item:hover {
+    background-color: lightgray;
 }

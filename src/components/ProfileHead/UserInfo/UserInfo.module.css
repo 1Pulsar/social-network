@@ -1,7 +1,10 @@
 .infoBlock {
     grid-area: u;
-    background-image: url("https://i.redd.it/wdpdo1h7vzh51.jpg");
+    background-image: url("https://pixelz.cc/wp-content/uploads/2019/05/neon-city-uhd-4k-wallpaper.jpg");
     background-size: cover;
     background-clip: content-box;
-    background-position: 0 -100px;
+    background-position: 0 -150px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: 'ava inf';
 }

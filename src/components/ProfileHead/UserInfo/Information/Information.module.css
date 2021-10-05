@@ -1,0 +1,8 @@
+.infoBlock {
+    grid-area: inf;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}

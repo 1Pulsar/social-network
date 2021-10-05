@@ -2,14 +2,14 @@ import React from 'react'
 import './App.css';
 import ProfileHead from "./components/ProfileHead/ProfileHead";
 import InfoBar from "./components/InfoBar/InfoBar";
-import Posts from "./components/Content/Posts/Posts";
+import Content from "./components/Content/Content";
 
 const App = () => {
     return (
         <div className='app-wrapper'>
             <ProfileHead />
             <InfoBar />
-            <Posts />
+            <Content />
         </div>
     );
 }
