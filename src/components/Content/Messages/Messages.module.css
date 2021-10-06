@@ -1,0 +1,13 @@
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1px 4fr;
+    grid-template-areas: 'users space dialogs';
+    background-color: white;
+    margin-bottom: 30px;
+    border: #d2d2d2 1px solid;
+}
+
+.space{
+    grid-area: space;
+    background-color: #c4c4c4;
+}

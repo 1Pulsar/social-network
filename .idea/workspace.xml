@@ -30,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Content/Settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Content/Messages/Dialogs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -42,11 +42,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Content/Messages/Dialogs" />
+      <recent name="$PROJECT_DIR$/src/components/Content/Messages/Users" />
       <recent name="$PROJECT_DIR$/src/components/Content/Settings" />
       <recent name="$PROJECT_DIR$/src/components/Content/Overview" />
       <recent name="$PROJECT_DIR$/src/components/Content/Media" />
-      <recent name="$PROJECT_DIR$/src/components/Content/Messages" />
-      <recent name="$PROJECT_DIR$/src/components/Content/Posts/Post" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
