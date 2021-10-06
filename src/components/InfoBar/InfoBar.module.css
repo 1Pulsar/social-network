@@ -1,0 +1,5 @@
+.infoBar {
+    grid-area: i;
+    background-color: darkblue;
+    min-height: 500px;
+}

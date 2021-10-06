@@ -1,0 +1,11 @@
+.avatarBlock {
+    grid-area: ava;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ava {
+    height: 150px;
+    border-radius: 200px;
+}

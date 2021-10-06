@@ -1,0 +1,25 @@
+.nav {
+    grid-area: n;
+    background-color: #ffffff;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+    transition: background-color .5s ease;
+    text-decoration: none;
+    color: black;
+}
+.activeLink {
+    background-color: #c4c4c4;
+}
+
+.item:hover {
+    background-color: lightgray;
+}
