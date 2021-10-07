@@ -61,4 +61,10 @@ const data = {
     ]
 }
 
+export const newMassage = massage => {
+    debugger
+    let newMessage = { id:10, abonent: 'out', text: massage}
+    data.messagesPage[0].messagesData.push(newMessage)
+}
+
 export default data

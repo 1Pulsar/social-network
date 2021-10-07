@@ -11,7 +11,7 @@ const App = (props) => {
             <div className='app-wrapper'>
                 <ProfileHead/>
                 <InfoBar/>
-                <Content data={props.data}/>
+                <Content data={props.data} newMassage={props.newMassage}/>
             </div>
         </BrowserRouter>
     );

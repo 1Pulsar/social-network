@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import data from "./React/Data";
+import {newMassage} from "./React/Data";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App data={data}/>
+    <App data={data} newMassage={newMassage}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

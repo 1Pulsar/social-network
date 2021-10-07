@@ -31,3 +31,19 @@
     text-align: center;
     padding-top: 10px;
 }
+
+.inputArea {
+    display: flex;
+    height: 50px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.textInput {
+    width: 75%;
+    height: 90%;
+}
+
+.sendButton {
+    height: 100%;
+}

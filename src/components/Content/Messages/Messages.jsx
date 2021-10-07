@@ -6,7 +6,7 @@ import {Route} from "react-router-dom";
 
 const Messages = (props) => {
     const routing = props.messagesPage.map( mesPageEl => <Route path = {`/messages/${mesPageEl.id}`} render = {
-        () => <Dialogs dialogElement={mesPageEl}/>} />)
+        () => <Dialogs dialogElement={mesPageEl} newMassage={props.newMassage}/>} />)
     return (
         <div className={st.content}>
             <Users usersData = {props.messagesPage}/>
