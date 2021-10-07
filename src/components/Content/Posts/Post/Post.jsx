@@ -5,11 +5,11 @@ const Post = (props) => {
     return (
         <div className={st.post}>
             <div className={st.preview} >
-                <img src={props.imageLink} />
+                <img src={props.previewImage} />
             </div>
             <div className={st.postContext}>
             <h1>{props.heading}</h1>
-                <p>{props.postDescription}</p>
+                <p>{props.postContent}</p>
                 <br />
                 <button>Read more</button>
             </div>
