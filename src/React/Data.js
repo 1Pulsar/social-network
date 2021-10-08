@@ -1,3 +1,4 @@
+
 const data = {
     postsPage:
         {postsData:[
@@ -23,7 +24,7 @@ const data = {
                 {id: 7, abonent: 'in', text: 'Hey!'},
                 {id: 8, abonent: 'out', text: 'What?'},
                 {id: 9, abonent: 'in', text: 'Good bye, have a good day!'},
-            ]},
+            ], textareaMassage:''},
         {id: 2, status: 'offline', name: 'Ilya -_-', avatar:'https://www.blast.hk/attachments/68493/',
             messagesData: [
                 {id: 1, abonent: 'in', text: 'He232'},
@@ -35,7 +36,7 @@ const data = {
                 {id: 7, abonent: 'in', text: 'wsswcswscHey!'},
                 {id: 8, abonent: 'out', text: 'Whatcwssccccc?'},
                 {id: 9, abonent: 'in', text: 'Good bye, havesswwwscwscwsc a good day!'},
-            ] },
+            ], textareaMassage:'' },
         {id: 3, status: 'offline', name: 'Dimon228', avatar:'https://cs14.pikabu.ru/post_img/2021/05/08/12/16205042291362743.jpg',
             messagesData: [
                 {id: 1, abonent: 'in', text: 'Hello, my dear friend!'},
@@ -47,7 +48,7 @@ const data = {
                 {id: 7, abonent: 'in', text: 'Hesdsdy!'},
                 {id: 8, abonent: 'out', text: 'What?'},
                 {id: 9, abonent: 'in', text: 'Goodccccc bye, have a good day!'},
-            ] },
+            ], textareaMassage:'' },
         {id: 4, status: 'online', name: 'VictorGeek', avatar:'https://www.youloveit.ru/uploads/posts/2020-04/1586360515_youloveit_ru_dipper_gravity_falls_na_avu02.jpg',
             messagesData: [
                 {id: 1, abonent: 'in', text: 'sssdsdHello, my dear friend!'},
@@ -57,14 +58,24 @@ const data = {
                 {id: 5, abonent: 'in', text: 'Do you like learn JS React?'},
                 {id: 6, abonent: 'out', text: 'Yes, so much'},
                 {id: 7, abonent: 'in', text: 'Heycscsc!'},
-            ]},
+            ], textareaMassage:''},
     ]
 }
 
-export const newMassage = massage => {
-    debugger
-    let newMessage = { id:10, abonent: 'out', text: massage}
-    data.messagesPage[0].messagesData.push(newMessage)
+
+let rerenderEntireTree;
+export let call = (calledRerenderEntireTree) => {rerenderEntireTree = calledRerenderEntireTree}
+
+export const newMassage = (id) => {
+    let newMessage = { id:10, abonent: 'in', text: data.messagesPage[id-1].textareaMassage}
+    data.messagesPage[id-1].messagesData.push(newMessage)
+    rerenderEntireTree(data)
+    data.messagesPage[id-1].textareaMassage = ''
+}
+
+export const textareaChanges = (text, id) => {
+    data.messagesPage[id-1].textareaMassage = text
+    rerenderEntireTree(data)
 }
 
 export default data
