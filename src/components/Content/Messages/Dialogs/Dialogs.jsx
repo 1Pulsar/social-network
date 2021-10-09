@@ -1,6 +1,5 @@
 import React from 'react'
 import st from './Dialogs.module.css'
-import {Route} from "react-router-dom";
 
 const Dialogs = (props) => {
     const messagesMapping = props.dialogElement.messagesData.map(
@@ -8,11 +7,17 @@ const Dialogs = (props) => {
 
     const textInput = React.createRef()
 
-    const sendMassage = () => props.newMassage(props.dialogElement.id)
+    const sendMassage = () => {
+        let action = {type:'NEW-MESSAGE', id:props.dialogElement.id}
+        props.dispatch(action)
+    }
+    //props.store.newMassage(props.dialogElement.id)
 
     const onTextareaChange = () => {
-        let text = textInput.current.value
-        props.textareaChanges(text, props.dialogElement.id)
+        let action = {type:'TEXTAREA-CHANGES', text:textInput.current.value, id:props.dialogElement.id}
+        props.dispatch(action)
+        //let text = textInput.current.value
+        //props.store.textareaChanges(text, props.dialogElement.id)
     }
 
     return (

@@ -3,11 +3,10 @@ import st from './Messages.module.css'
 import Dialogs from "./Dialogs/Dialogs";
 import Users from "./Users/Users";
 import {Route} from "react-router-dom";
-import {textareaChanges} from "../../../React/Data";
 
 const Messages = (props) => {
     const routing = props.messagesPage.map( mesPageEl => <Route path = {`/messages/${mesPageEl.id}`} render = {
-        () => <Dialogs dialogElement={mesPageEl} newMassage={props.newMassage} textareaChanges={props.textareaChanges}/>} />)
+        () => <Dialogs dialogElement={mesPageEl} dispatch = {props.dispatch}/>} />)
     return (
         <div className={st.content}>
             <Users usersData = {props.messagesPage}/>
