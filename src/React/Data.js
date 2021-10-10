@@ -1,3 +1,14 @@
+export const sendMassageActionCreator = (id) => {
+    let action = {type:'NEW-MESSAGE', id:id}
+    store.dispatch(action)
+}
+
+export const onTextareaChangeActionCreator = (text, id) => {
+    let action = {type:'TEXTAREA-CHANGES', text:text, id:id}
+    store.dispatch(action)
+}
+
+
 export let store = {
     _data:{
         postsPage:

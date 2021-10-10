@@ -1,5 +1,6 @@
 import React from 'react'
 import st from './Dialogs.module.css'
+import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../../React/Data";
 
 const Dialogs = (props) => {
     const messagesMapping = props.dialogElement.messagesData.map(
@@ -7,18 +8,9 @@ const Dialogs = (props) => {
 
     const textInput = React.createRef()
 
-    const sendMassage = () => {
-        let action = {type:'NEW-MESSAGE', id:props.dialogElement.id}
-        props.dispatch(action)
-    }
-    //props.store.newMassage(props.dialogElement.id)
+    const sendMassage = () => sendMassageActionCreator(props.dialogElement.id)
 
-    const onTextareaChange = () => {
-        let action = {type:'TEXTAREA-CHANGES', text:textInput.current.value, id:props.dialogElement.id}
-        props.dispatch(action)
-        //let text = textInput.current.value
-        //props.store.textareaChanges(text, props.dialogElement.id)
-    }
+    const onTextareaChange = () => onTextareaChangeActionCreator(textInput.current.value, props.dialogElement.id)
 
     return (
         <div className={st.content}>
@@ -31,7 +23,7 @@ const Dialogs = (props) => {
                 {messagesMapping}
             </div>
             <div className={st.inputArea}>
-                <textarea ref={textInput} className={st.textInput} onChange={onTextareaChange} value = {props.dialogElement.textareaMassage}></textarea>
+                <textarea placeholder='Enter your message' ref={textInput} className={st.textInput} onChange={onTextareaChange} value = {props.dialogElement.textareaMassage}></textarea>
                 <button className={st.sendButton} onClick={ sendMassage }>Send</button>
             </div>
         </div>
