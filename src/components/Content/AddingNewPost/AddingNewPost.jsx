@@ -5,7 +5,7 @@ import {
     onHeaderTextareaPostCreator,
     onImageTextareaPostCreator,
     publishPostCreator
-} from "../../../React/Data";
+} from "../../../React/Reducer/PostsPageReducer";
 
 const AddingNewPost = (props) => {
 

@@ -1,16 +1,5 @@
-export const sendMassageActionCreator = (id) => {
-    let action = {type: 'NEW-MESSAGE', id: id}
-    store.dispatch(action)
-}
-export const onTextareaChangeActionCreator = (text, id) => {
-    let action = {type: 'MESSAGE-TEXTAREA-CHANGES', text: text, id: id}
-    store.dispatch(action)
-}
-
-export const onHeaderTextareaPostCreator = (text) => store.dispatch({type:'POST-HEADER-TEXTAREA-CHANGES', text:text})
-export const onContentTextareaPostCreator = (text) => store.dispatch({type: 'POST-CONTENT-TEXTAREA-CHANGES', text:text})
-export const onImageTextareaPostCreator = (text) => store.dispatch({type: 'POST-IMAGE-TEXTAREA-CHANGES', text:text})
-export const publishPostCreator = () => store.dispatch({type: 'PUBLISH-POST'})
+import messagePageReducer from "./Reducer/MessagePageReducer";
+import postsPageReducer from "./Reducer/PostsPageReducer";
 
     export
 let store = {
@@ -118,38 +107,8 @@ let store = {
         this._goRender = calledRender
     },
     dispatch(action) {
-        if (action.type === 'NEW-MESSAGE') {
-            let newMessage = {id: 10, abonent: 'in', text: this._data.messagesPage[action.id - 1].textareaMassage}
-            this._data.messagesPage[action.id - 1].messagesData.push(newMessage)
-            this._goRender(this._data)
-            this._data.messagesPage[action.id - 1].textareaMassage = ''
-
-        } else if (action.type === 'MESSAGE-TEXTAREA-CHANGES') {
-            this._data.messagesPage[action.id - 1].textareaMassage = action.text
-            this._goRender(this._data)
-        } else if (action.type === 'POST-CONTENT-TEXTAREA-CHANGES') {
-            this._data.postsPage.textareaPostText = action.text
-            this._goRender(this._data)
-        } else if (action.type === 'POST-IMAGE-TEXTAREA-CHANGES') {
-            this._data.postsPage.textareaPostImage = action.text
-            this._goRender(this._data)
-        } else if (action.type === 'POST-HEADER-TEXTAREA-CHANGES') {
-            this._data.postsPage.textareaPostHeader = action.text
-            this._goRender(this._data)
-        } else if (action.type === 'PUBLISH-POST') {
-            if (this._data.postsPage.textareaPostText != '' && this._data.postsPage.textareaPostHeader != '') {
-                let newPost = {
-                    id: (this._data.postsPage.postsData.length + 1),
-                    heading: this._data.postsPage.textareaPostHeader,
-                    previewImage: this._data.postsPage.textareaPostImage,
-                    postContent: this._data.postsPage.textareaPostText
-                }
-                this._data.postsPage.postsData.push(newPost)
-                this._goRender(this._data)
-                this._data.postsPage.textareaPostHeader = ''
-                this._data.postsPage.textareaPostImage = ''
-                this._data.postsPage.textareaPostText = ''
-            }
-        }
+        this._data.messagesPage = messagePageReducer(action, this._data.messagesPage)
+        this._data.postsPage = postsPageReducer(action, this._data.postsPage)
+        this._goRender(this._data)
     }
 }

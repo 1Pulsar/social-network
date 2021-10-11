@@ -1,6 +1,6 @@
 import React from 'react'
 import st from './Dialogs.module.css'
-import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../../React/Data";
+import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../../React/Reducer/MessagePageReducer";
 
 const Dialogs = (props) => {
     const messagesMapping = props.dialogElement.messagesData.map(
