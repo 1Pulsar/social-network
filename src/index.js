@@ -3,21 +3,22 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
-import {store} from "./React/Data";
-
-let data = store.getData()
+import {store} from "./Redux/ReduxStore";
+import contentContext from "./ContentContext";
 
 const rerenderEntireTree = (data) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App data = {data} dispatch = {store.dispatch.bind(store)} />
+            <contentContext.Provider value={store}>
+            <App />
+            </contentContext.Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-rerenderEntireTree(data)
+rerenderEntireTree(store.getState())
 
-store.getRender(rerenderEntireTree)
+store.subscribe( () => rerenderEntireTree(store.getState()))
 
 reportWebVitals();

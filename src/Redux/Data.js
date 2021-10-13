@@ -1,4 +1,4 @@
-import messagePageReducer from "./Reducer/MessagePageReducer";
+/*import messagePageReducer from "./Reducer/MessagePageReducer";
 import postsPageReducer from "./Reducer/PostsPageReducer";
 
     export
@@ -40,7 +40,7 @@ let store = {
                     {id: 2, abonent: 'out', text: 'Hi!'},
                     {id: 3, abonent: 'in', text: 'How are you?'},
                     {id: 4, abonent: 'out', text: 'I\'m fine'},
-                    {id: 5, abonent: 'in', text: 'Do you like learn JS React?'},
+                    {id: 5, abonent: 'in', text: 'Do you like learn JS Redux?'},
                     {id: 6, abonent: 'out', text: 'Yes, so much'},
                     {id: 7, abonent: 'in', text: 'Hey!'},
                     {id: 8, abonent: 'out', text: 'What?'},
@@ -54,7 +54,7 @@ let store = {
                     {id: 2, abonent: 'out', text: 'Hwewewewe!'},
                     {id: 3, abonent: 'in', text: 'How are yowwsdsdsu?'},
                     {id: 4, abonent: 'out', text: 'I\'m finswwdssdsde'},
-                    {id: 5, abonent: 'in', text: 'Do you like learn wswsswcwscJS React?'},
+                    {id: 5, abonent: 'in', text: 'Do you like learn wswsswcwscJS Redux?'},
                     {id: 6, abonent: 'out', text: 'Yes, so wscwscwscmuch'},
                     {id: 7, abonent: 'in', text: 'wsswcswscHey!'},
                     {id: 8, abonent: 'out', text: 'Whatcwssccccc?'},
@@ -71,7 +71,7 @@ let store = {
                     {id: 2, abonent: 'out', text: 'Hisdsdds!'},
                     {id: 3, abonent: 'in', text: 'How are you?'},
                     {id: 4, abonent: 'out', text: 'I\'m fine'},
-                    {id: 5, abonent: 'in', text: 'Dodsdsdsd you like learn JS React?'},
+                    {id: 5, abonent: 'in', text: 'Dodsdsdsd you like learn JS Redux?'},
                     {id: 6, abonent: 'out', text: 'Yes, so much'},
                     {id: 7, abonent: 'in', text: 'Hesdsdy!'},
                     {id: 8, abonent: 'out', text: 'What?'},
@@ -89,7 +89,7 @@ let store = {
                     {id: 2, abonent: 'out', text: 'Hisasdasd!'},
                     {id: 3, abonent: 'in', text: 'How are you?'},
                     {id: 4, abonent: 'out', text: 'I\'m fccine'},
-                    {id: 5, abonent: 'in', text: 'Do you like learn JS React?'},
+                    {id: 5, abonent: 'in', text: 'Do you like learn JS Redux?'},
                     {id: 6, abonent: 'out', text: 'Yes, so much'},
                     {id: 7, abonent: 'in', text: 'Heycscsc!'},
                 ],
@@ -111,4 +111,4 @@ let store = {
         this._data.postsPage = postsPageReducer(action, this._data.postsPage)
         this._goRender(this._data)
     }
-}
+}*/

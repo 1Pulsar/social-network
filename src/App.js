@@ -11,7 +11,7 @@ const App = (props) => {
             <div className='app-wrapper'>
                 <ProfileHead/>
                 <InfoBar/>
-                <Content data = {props.data} dispatch = {props.dispatch} />
+                <Content data = {props.data} dispatch = {props.dispatch} store={props.store} />
             </div>
         </BrowserRouter>
     );

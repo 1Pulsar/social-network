@@ -5,14 +5,14 @@ import {
     onHeaderTextareaPostCreator,
     onImageTextareaPostCreator,
     publishPostCreator
-} from "../../../React/Reducer/PostsPageReducer";
+} from "../../../../Redux/Reducer/PostsPageReducer";
 
 const AddingNewPost = (props) => {
 
-    let addPostClick = () => publishPostCreator()
-    let headerChanges = (event) => onHeaderTextareaPostCreator(event.target.value)
-    let imgUrlChanges = (event) => onImageTextareaPostCreator(event.target.value)
-    let contentChanges = (event) => onContentTextareaPostCreator(event.target.value)
+    let addPostClick = () => props.addPostClickContainer()
+    let headerChanges = (event) => props.headerChangesContainer(event.target.value)
+    let imgUrlChanges = (event) => props.imgUrlChangesContainer(event.target.value)
+    let contentChanges = (event) => props.contentChangesContainer(event.target.value)
 
     return (
         <div className={st.addingPostPage}>
