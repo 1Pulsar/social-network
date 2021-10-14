@@ -67,12 +67,16 @@ const messagePageReducer = (messagesPage = initialState, action) => {
     switch (action.type) {
         case 'NEW-MESSAGE':
             let newMessage = {id: 10, abonent: 'in', text: messagesPage[action.id - 1].textareaMassage}
-            messagesPage[action.id - 1].messagesData.push(newMessage)
-            messagesPage[action.id - 1].textareaMassage = ''
-            return messagesPage
-        case'MESSAGE-TEXTAREA-CHANGES':
-            messagesPage[action.id - 1].textareaMassage = action.text
-            return messagesPage
+            {let messagesPageCopy = [...messagesPage]
+            messagesPageCopy[action.id - 1].messagesData = [...messagesPage[action.id - 1].messagesData]
+            messagesPageCopy[action.id - 1].messagesData.push(newMessage)
+            messagesPageCopy[action.id - 1].textareaMassage = ''
+            return messagesPageCopy}
+        case'MESSAGE-TEXTAREA-CHANGES':{
+            let messagesPageCopy = [...messagesPage]
+            messagesPageCopy[action.id - 1].messagesData = [...messagesPage[action.id - 1].messagesData]
+            messagesPageCopy[action.id - 1].textareaMassage = action.text
+            return messagesPageCopy}
         default:
             return messagesPage
     }

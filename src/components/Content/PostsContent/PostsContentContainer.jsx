@@ -1,13 +1,13 @@
 import React from "react";
-import contentContext from "../../../ContentContext";
 import PostsContent from "./PostsContent";
+import {connect} from "react-redux";
 
-const PostsContentContainer = () => {
-    return (
-        <contentContext.Consumer>
-            {(store) => <PostsContent postsPage={store.getState().postsPage}/>}
-        </contentContext.Consumer>
-    )
-}
+let mapStateToProps = (state) =>({
+    postsPage: state.postsPage
+})
+
+let mapDispatchToProps =(dispatch) => ({})
+
+const PostsContentContainer = connect(mapStateToProps, mapDispatchToProps)(PostsContent)
 
 export default PostsContentContainer

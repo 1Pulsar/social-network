@@ -5,33 +5,22 @@ import {
     publishPostCreator
 } from "../../../../Redux/Reducer/PostsPageReducer";
 import React from "react";
-import contentContext from "../../../../ContentContext";
 import AddingNewPost from "./AddingNewPost";
+import {connect} from "react-redux";
 
-const AddingNewPostContainer = () => {
-    return (
-        <contentContext.Consumer>
-            {
-                store => {
-                    let postsPage = store.getState().postsPage
-                    let addPostClickContainer = () => store.dispatch(publishPostCreator())
-                    let headerChangesContainer = (event) => store.dispatch(onHeaderTextareaPostCreator(event))
-                    let imgUrlChangesContainer = (event) => store.dispatch(onImageTextareaPostCreator(event))
-                    let contentChangesContainer = (event) => store.dispatch(onContentTextareaPostCreator(event))
+const mapStateToProps = (state) =>({
+    headerText: state.postsPage.textareaPostHeader,
+    imageText: state.postsPage.textareaPostImage,
+    contentText: state.postsPage.textareaPostText
+})
 
-                    return (
-                        <AddingNewPost headerText={postsPage.textareaPostHeader}
-                                       imageText={postsPage.textareaPostImage}
-                                       contentText={postsPage.textareaPostText}
-                                       addPostClickContainer={addPostClickContainer}
-                                       headerChangesContainer={headerChangesContainer}
-                                       imgUrlChangesContainer={imgUrlChangesContainer}
-                                       contentChangesContainer={contentChangesContainer}/>
-                    )
-                }
-            }
-        </contentContext.Consumer>
-    )
-}
+const mapDispatchToProps = (dispatch) =>({
+    addPostClickContainer:()=>dispatch(publishPostCreator()),
+    headerChangesContainer:(text) => dispatch(onHeaderTextareaPostCreator(text)),
+    imgUrlChangesContainer:(text) => dispatch(onImageTextareaPostCreator(text)),
+    contentChangesContainer:(text) => dispatch(onContentTextareaPostCreator(text))
+})
+
+const AddingNewPostContainer = connect(mapStateToProps, mapDispatchToProps)(AddingNewPost)
 
 export default AddingNewPostContainer

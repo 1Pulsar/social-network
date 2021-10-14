@@ -1,17 +1,16 @@
 import Messages from "./Messages";
-import contentContext from "../../../ContentContext";
 import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../Redux/Reducer/MessagePageReducer";
+import {connect} from "react-redux";
 
-const MessagesContainer = () => {
-    return (
-    <contentContext.Consumer>
-        {(store) => {
-            const sendMassageContainer = (id) => store.dispatch(sendMassageActionCreator(id))
-            const onTextareaChangeContainer = (text, id) => store.dispatch(onTextareaChangeActionCreator(text, id))
+let mapStateToProps = (state) => ({
+    messagesPage: state.messagesPage
+})
 
-            return <Messages messagesPage={store.getState().messagesPage} sendMassageContainer={sendMassageContainer}
-                              onTextareaChangeContainer={onTextareaChangeContainer}/>}}
-    </contentContext.Consumer>
-    )}
+let mapDispatchToProps = (dispatch) => ({
+    sendMassageContainer: (id) => dispatch(sendMassageActionCreator(id)),
+    onTextareaChangeContainer: (text, id) => dispatch(onTextareaChangeActionCreator(text, id))
+})
+
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
 
 export default MessagesContainer

@@ -28,17 +28,15 @@ let initialState = {
 }
 
 const postsPageReducer = (postsPage = initialState, action) => {
-    switch (action.type) {
+        switch (action.type) {
         case 'POST-CONTENT-TEXTAREA-CHANGES':
-            postsPage.textareaPostText = action.text
-            return postsPage
+            return {...postsPage, textareaPostText:action.text}
         case 'POST-IMAGE-TEXTAREA-CHANGES':
-            postsPage.textareaPostImage = action.text
-            return postsPage
+            return {...postsPage, textareaPostImage:action.text}
         case 'POST-HEADER-TEXTAREA-CHANGES':
-            postsPage.textareaPostHeader = action.text
-            return postsPage
+            return {...postsPage, textareaPostHeader:action.text}
         case 'PUBLISH-POST':
+            let newPostPushedPage = postsPage
             if (postsPage.textareaPostText != '' && postsPage.textareaPostHeader != '') {
                 let newPost = {
                     id: (postsPage.postsData.length + 1),
@@ -46,12 +44,10 @@ const postsPageReducer = (postsPage = initialState, action) => {
                     previewImage: postsPage.textareaPostImage,
                     postContent: postsPage.textareaPostText
                 }
-                postsPage.postsData.push(newPost)
-                postsPage.textareaPostHeader = ''
-                postsPage.textareaPostImage = ''
-                postsPage.textareaPostText = ''
+                newPostPushedPage = {...postsPage, postsData:[...postsPage.postsData, newPost],
+                    textareaPostHeader:'', textareaPostImage:'', textareaPostText:''}
             }
-            return postsPage
+            return newPostPushedPage
         default:
             return postsPage
     }
