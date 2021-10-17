@@ -3,18 +3,20 @@ import st from './Content.module.css'
 import Settings from "./Settings/Settings";
 import {Route} from "react-router-dom";
 import Media from "./Media/Media";
-import Messages from "./Messages/Messages";
 import Overview from "./Overview/Overview";
-import Posts from "./Posts/Posts";
+import MessagesContainer from "./Messages/MessagesContainer";
+import PostsContentContainer from "./PostsContent/PostsContentContainer";
+import FinderContainer from "./Finder/FinderContainer";
 
-const Content = () => {
+const Content = (props) => {
     return (
         <div className={st.content}>
-            <Route path='/media' component={Media} />
-            <Route path='/messages' component={Messages} />
-            <Route path='/overview' component={Overview} />
-            <Route path='/posts' component={Posts} />
-            <Route path='/settings' component={Settings} />
+            <Route path='/media' render={() => <Media/>}/>
+            <Route path='/messages' render={() => <MessagesContainer/>}/>
+            <Route path='/overview' render={() => <Overview/>}/>
+            <Route path='/finder' render={() => <FinderContainer/>}/>
+            <PostsContentContainer/>
+            <Route path='/settings' render={() => <Settings/>}/>
         </div>
     )
 }

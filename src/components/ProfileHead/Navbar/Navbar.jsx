@@ -7,6 +7,7 @@ const Navbar = () => {
         <nav className={st.nav}>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/overview'>Overview</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/messages'>Messages</NavLink>
+            <NavLink className={st.item} activeClassName={st.activeLink} to='/finder'>Finder</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/media'>Media</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/posts'>Posts</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/settings'>Settings</NavLink>

@@ -1,0 +1,45 @@
+.addingPostPage {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.contentChanges {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.imgAndHeadChanges {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 30px;
+}
+
+.addPostButton {
+    text-decoration: none;
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    width: 110px;
+    height: 30px;
+    background-color:coral;
+    color: #232323;
+
+    border-radius: 2px;
+    transition: background-color .5s ease;
+    margin-bottom: 30px;
+}
+
+.addPostButton:hover {
+    background-color: #ff6934;
+}
+
+.addPostButton img {
+    width: 20px;
+    height: 20px;
+    padding-left: 4px;
+    margin-left: 4px;
+    opacity: .65;
+    border-left: #c4c4c4 1px solid;
+}

@@ -1,0 +1,47 @@
+.post {
+    background-color: white;
+    width: 100%;
+    height: 250px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas: 'preview context';
+    margin-bottom: 30px;
+}
+
+.preview {
+    grid-area: preview;
+    background-position: center;
+    background-size: cover;
+}
+
+.rMoreButton {
+    text-decoration: none;
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    width: 110px;
+    height: 30px;
+    background-color:coral;
+    color: #232323;
+
+    border-radius: 2px;
+    transition: background-color .5s ease;
+}
+
+.rMoreButton:hover {
+    background-color: #ff6934;
+}
+
+.rMoreButton img {
+    width: 20px;
+    height: 20px;
+    padding-left: 4px;
+    margin-left: 4px;
+    opacity: .65;
+    border-left: #c4c4c4 1px solid;
+}
+
+.postContext {
+    grid-area: context;
+    padding: 10px;
+}

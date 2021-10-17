@@ -1,26 +1,30 @@
 import React from 'react'
 import st from './Dialogs.module.css'
 
-const Dialogs = () => {
-    const MessagesData = [
-        {id: 1, abonent: 'in', text: 'Hello, my dear friend!'},
-        {id: 2, abonent: 'out', text: 'Hi!'},
-        {id: 3, abonent: 'in', text: 'How are you?'},
-        {id: 4, abonent: 'out', text: 'I\'m fine'},
-        {id: 5, abonent: 'in', text: 'Do you like learn JS React?'},
-        {id: 6, abonent: 'out', text: 'Yes, so much'},
-        {id: 7, abonent: 'in', text: 'Hey!'},
-        {id: 8, abonent: 'out', text: 'What?'},
-        {id: 9, abonent: 'in', text: 'Good bye, have a good day!'},
-    ]
-
-    const MessagesMapping = MessagesData.map(
+const Dialogs = (props) => {
+    const messagesMapping = props.dialogElement.messagesData.map(
         m => <span className={`${st.message} ${(m.abonent === 'in') ? st.in : st.out}`}>{m.text}</span>)
+
+    const sendMassage = () => props.sendMassageContainer(props.dialogElement.id)
+
+    const onTextareaChange = (event) => props.onTextareaChangeContainer(event.target.value, props.dialogElement.id)
 
     return (
         <div className={st.content}>
-            {MessagesMapping}
+            <div className={st.dialogHead}>
+                {props.dialogElement.name} <br/>
+                {props.dialogElement.status}
+            </div>
+
+            <div className={st.dialogContent}>
+                {messagesMapping}
+            </div>
+            <div className={st.inputArea}>
+                <textarea placeholder='Enter your message' className={st.textInput} onChange={onTextareaChange} value = {props.dialogElement.textareaMassage}></textarea>
+                <button className={st.sendButton} onClick={ sendMassage }>Send</button>
+            </div>
         </div>
+
     )
 }
 
