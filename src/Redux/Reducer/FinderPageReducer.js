@@ -1,9 +1,9 @@
-
 let initialState = {
-    users:[],
+    users: [],
     totalCount: 0,
     currentPage: 1,
-    pageSize: 5
+    pageSize: 5,
+    isFetching: false
 }
 
 const finderPageReducer = (finderPage = initialState, action) => {
@@ -31,22 +31,26 @@ const finderPageReducer = (finderPage = initialState, action) => {
         case 'SET-USERS':
             return {...finderPage, users: action.users}
         case 'CHANGE-PAGE':
-            return{...finderPage, currentPage: action.page}
+            return {...finderPage, currentPage: action.page}
         case 'SET-TOTAL-COUNT':
-            return{...finderPage, totalCount: action.totalCount}
+            return {...finderPage, totalCount: action.totalCount}
+        case 'IS-FETCHING':
+            return {...finderPage, isFetching: action.toggleFetching}
         default:
             return finderPage
     }
 }
 
-export const followAC = (id) => ({type:'FOLLOW', id})
+export const follow = (id) => ({type: 'FOLLOW', id})
 
-export const unfollowAC = (id) => ({type:'UNFOLLOW', id})
+export const unfollow = (id) => ({type: 'UNFOLLOW', id})
 
-export const setUsersAC = (users) => ({type:'SET-USERS', users})
+export const setUsers = (users) => ({type: 'SET-USERS', users})
 
-export const changePageAC = (page) => ({type:'CHANGE-PAGE', page})
+export const changePage = (page) => ({type: 'CHANGE-PAGE', page})
 
-export const totalCountAC = (totalCount) => ({type:'SET-TOTAL-COUNT', totalCount})
+export const setTotalCount = (totalCount) => ({type: 'SET-TOTAL-COUNT', totalCount})
+
+export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleFetching})
 
 export default finderPageReducer
