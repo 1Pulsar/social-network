@@ -6,7 +6,7 @@ const Information = () => {
         <div className={st.infoBlock}>
             <h1>1Pulsar</h1>
             <p>5 stars</p>
-            <p>Full-stack developer</p>
+            <p>Front-End developer</p>
         </div>
     )
 }

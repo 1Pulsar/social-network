@@ -14,7 +14,7 @@ let initialState = [
         ], textareaMassage: ''
     },
     {
-        id: 2, status: 'offline', name: 'Ilya -_-', avatar: 'https://www.blast.hk/attachments/68493/',
+        id: 2, status: 'offline', name: 'Ilya', avatar: 'https://www.blast.hk/attachments/68493/',
         messagesData: [
             {id: 1, abonent: 'in', text: 'He232'},
             {id: 2, abonent: 'out', text: 'Hwewewewe!'},
