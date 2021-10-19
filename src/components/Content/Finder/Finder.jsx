@@ -1,6 +1,7 @@
 import React from "react"
 import st from "./Finder.module.css";
 import Preloader from "../../common/Preloader";
+import {NavLink} from "react-router-dom";
 
 const Finder = (props) => {
 
@@ -35,12 +36,16 @@ const Finder = (props) => {
         </div>
 
         {props.users.map(u => <div className={st.userItem}>
+            <NavLink to={`/user/${u.id}`} style={{textDecoration: "none"}}>
             <img className={st.profileImg}
                  src={u.photos.small != null ? u.photos.small : 'https://cdn-icons-png.flaticon.com/512/219/219983.png'}/>
+            </NavLink>
             <div className={st.itemBlock}>
                 <div className={st.userInfo}>
                     <div>
-                        <div>{u.name}</div>
+                        <div>
+                            <NavLink to={`/user/${u.id}`} style={{textDecoration: "none", color:"black"}}>{u.name}</NavLink>
+                        </div>
                         <div className={st.location}>u.location.city, u.location.country</div>
                     </div>
                     <div className={st.status}>{u.status}</div>

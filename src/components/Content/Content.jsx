@@ -7,6 +7,7 @@ import Overview from "./Overview/Overview";
 import MessagesContainer from "./Messages/MessagesContainer";
 import PostsContentContainer from "./PostsContent/PostsContentContainer";
 import FinderContainer from "./Finder/FinderContainer";
+import UserPageContainer from "./Finder/UserPage/UserPageContainer";
 
 const Content = (props) => {
     return (
@@ -17,6 +18,7 @@ const Content = (props) => {
             <Route path='/finder' render={() => <FinderContainer/>}/>
             <PostsContentContainer/>
             <Route path='/settings' render={() => <Settings/>}/>
+            <Route path='/user/' render={() => <UserPageContainer/>}/>
         </div>
     )
 }

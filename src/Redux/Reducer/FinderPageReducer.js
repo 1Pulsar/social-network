@@ -1,4 +1,4 @@
-let initialState = {
+const initialState = {
     users: [],
     totalCount: 0,
     currentPage: 1,
