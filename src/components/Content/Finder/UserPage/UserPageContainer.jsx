@@ -3,16 +3,7 @@ import axios from "axios";
 import {connect} from "react-redux";
 import {setUserPage, toggleFetching} from "../../../../Redux/Reducer/UserPageReducer";
 import UserPage from "./UserPage";
-
-const mapStateToProps = state => ({
-    photos: state.userPage.pageInformation.photos,
-    fullName: state.userPage.pageInformation.fullName,
-    isFetching: state.userPage.isFetching
-})
-
-const dispatchObject = {setUserPage, toggleFetching}
-
-const UserPageContainer = connect(mapStateToProps, dispatchObject)(UserPageAPI)
+import {Route, withRouter} from "react-router-dom";
 
 class UserPageAPI extends React.Component {
     componentDidMount() {
@@ -25,8 +16,22 @@ class UserPageAPI extends React.Component {
     }
 
     render() {
-        return <UserPage pageInformation={this.pageInformation} isFetching={this.isFetching}/>
+        return <Route path={`/user/${this.props.id}`} render={() => <UserPage pageInformation={this.pageInformation}
+                                                                              isFetching={this.isFetching}/>}/>
     }
 }
+
+const mapStateToProps = state => ({
+    id: state.userPage.pageInformation.userId,
+    photos: state.userPage.pageInformation.photos,
+    fullName: state.userPage.pageInformation.fullName,
+    isFetching: state.userPage.isFetching
+})
+
+const dispatchObject = {setUserPage, toggleFetching}
+
+const UserPageURLRouting = withRouter(UserPageAPI)
+
+const UserPageContainer = connect(mapStateToProps, dispatchObject)(UserPageURLRouting)
 
 export default UserPageContainer

@@ -18,7 +18,7 @@ const Content = (props) => {
             <Route path='/finder' render={() => <FinderContainer/>}/>
             <PostsContentContainer/>
             <Route path='/settings' render={() => <Settings/>}/>
-            <Route path='/user/' render={() => <UserPageContainer/>}/>
+            <Route path='/user/:userId' render={() => <UserPageContainer/>}/>
         </div>
     )
 }
