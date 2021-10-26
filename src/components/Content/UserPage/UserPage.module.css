@@ -1,0 +1,11 @@
+.mainContainer {
+    width: 100%;
+    background-color: white;
+    border: #c4c4c4 solid 1px;
+    min-height: 300px;
+}
+
+.mainPhoto {
+    max-height: 200px;
+    max-width: 200px;
+}

@@ -2,6 +2,7 @@ import React from "react"
 import st from "./Finder.module.css";
 import Preloader from "../../common/Preloader";
 import {NavLink} from "react-router-dom";
+import {samuraiAPI} from "../../../api/api";
 
 const Finder = (props) => {
 
@@ -16,6 +17,24 @@ const Finder = (props) => {
     }
     const changeCurrentPage = (p) => {
         props.changeCurrentPage(p)
+    }
+
+    const followingButton = (isFollowed, id) => {
+        props.toggleFollowing(true, id)
+        if (isFollowed) {
+            samuraiAPI.unfollow(id)
+                .then(data => {
+                    data.resultCode == 0 && props.unfollow(id)
+                    props.toggleFollowing(false, id)
+                })
+        } else {
+            samuraiAPI.follow(id)
+                .then(data => {
+                    data.resultCode == 0 && props.follow(id)
+                    props.toggleFollowing(false, id)
+                })
+        }
+
     }
 
 
@@ -37,21 +56,22 @@ const Finder = (props) => {
 
         {props.users.map(u => <div className={st.userItem}>
             <NavLink to={`/user/${u.id}`} style={{textDecoration: "none"}}>
-            <img className={st.profileImg}
-                 src={u.photos.small != null ? u.photos.small : 'https://cdn-icons-png.flaticon.com/512/219/219983.png'}/>
+                <img className={st.profileImg}
+                     src={u.photos.small != null ? u.photos.small : 'https://cdn-icons-png.flaticon.com/512/219/219983.png'}/>
             </NavLink>
             <div className={st.itemBlock}>
                 <div className={st.userInfo}>
                     <div>
                         <div>
-                            <NavLink to={`/user/${u.id}`} style={{textDecoration: "none", color:"black"}}>{u.name}</NavLink>
+                            <NavLink to={`/user/${u.id}`}
+                                     style={{textDecoration: "none", color: "black"}}>{u.name}</NavLink>
                         </div>
                         <div className={st.location}>u.location.city, u.location.country</div>
                     </div>
                     <div className={st.status}>{u.status}</div>
                 </div>
-                <button onClick={() => {
-                    u.followed ? props.unfollow(u.id) : props.follow(u.id)
+                <button disabled={props.followingInProcess.some(id => id === u.id)} onClick={() => {
+                    followingButton(u.followed, u.id)
                 }}
                         className={st.button}>{(u.followed) ? 'Unfollow' : 'Follow'}</button>
             </div>

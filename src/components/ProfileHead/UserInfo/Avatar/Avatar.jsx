@@ -1,11 +1,11 @@
 import React from 'react'
 import st from './Avatar.module.css'
 
-const Avatar = () => {
+const Avatar = (props) => {
     return (
             <div className={st.avatarBlock}>
                 <img className={st.ava}
-                     src='https://static10.tgstat.ru/channels/_0/de/deeb9f0e7b43dc6d67f4628356c274d7.jpg'/>
+                     src={props.avatar ? props.avatar : 'https://cdn-icons-png.flaticon.com/512/219/219983.png'}/>
             </div>
     )
 }

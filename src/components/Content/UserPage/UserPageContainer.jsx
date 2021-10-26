@@ -1,23 +1,25 @@
 import React from "react";
-import axios from "axios";
 import {connect} from "react-redux";
-import {setUserPage, toggleFetching} from "../../../../Redux/Reducer/UserPageReducer";
+import {setUserPage, toggleFetching} from "../../../Redux/Reducer/UserPageReducer";
 import UserPage from "./UserPage";
-import {Route, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
+import {samuraiAPI} from "../../../api/api";
 
 class UserPageAPI extends React.Component {
     componentDidMount() {
+        const userId = this.props.match.params.userId
         this.props.toggleFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
-            .then(responce => {
-                this.props.setUserPage(responce)
+        samuraiAPI.getProfile(userId).then(data => {
+                this.props.setUserPage(data)
                 this.props.toggleFetching(false)
             })
     }
 
     render() {
-        return <Route path={`/user/${this.props.id}`} render={() => <UserPage pageInformation={this.pageInformation}
-                                                                              isFetching={this.isFetching}/>}/>
+        return <UserPage id={this.props.id}
+                         photos={this.props.photos}
+                         fullName={this.props.fullName}
+                         isFetching={this.props.isFetching}/>
     }
 }
 

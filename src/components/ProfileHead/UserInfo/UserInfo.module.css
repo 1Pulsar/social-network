@@ -4,7 +4,21 @@
     background-size: cover;
     background-clip: content-box;
     background-position: 0 -150px;
+}
+
+.authUserInfo {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-areas: 'ava inf';
+}
+
+.loginButton {
+    text-decoration: none;
+    color: #232323;
+    padding: 5px;
+    margin: 10px;
+    border: #c4c4c4 1px solid;
+    border-radius: 2px;
+    background-color: #d2d2d2;
+    float: right;
 }

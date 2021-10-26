@@ -3,7 +3,8 @@ const initialState = {
     totalCount: 0,
     currentPage: 1,
     pageSize: 5,
-    isFetching: false
+    isFetching: false,
+    followingInProcess: []
 }
 
 const finderPageReducer = (finderPage = initialState, action) => {
@@ -36,6 +37,10 @@ const finderPageReducer = (finderPage = initialState, action) => {
             return {...finderPage, totalCount: action.totalCount}
         case 'IS-FETCHING':
             return {...finderPage, isFetching: action.toggleFetching}
+        case 'IS-FOLLOWING':
+            return {...finderPage, followingInProcess: action.isFollowing ?
+            [...finderPage.followingInProcess, action.id] :
+                    finderPage.followingInProcess.filter(id => id != action.id)}
         default:
             return finderPage
     }
@@ -52,5 +57,7 @@ export const changePage = (page) => ({type: 'CHANGE-PAGE', page})
 export const setTotalCount = (totalCount) => ({type: 'SET-TOTAL-COUNT', totalCount})
 
 export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleFetching})
+
+export const toggleFollowing = (isFollowing, id) => ({type: 'IS-FOLLOWING',isFollowing , id})
 
 export default finderPageReducer

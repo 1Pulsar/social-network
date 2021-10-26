@@ -6,7 +6,10 @@ const initialState = {
         lookingForAJobDescription: '',
         fullName: '',
         userId: null,
-        photos: {}
+        photos: {
+            large: 'https://cdn-icons-png.flaticon.com/512/219/219983.png',
+            small: 'https://cdn-icons-png.flaticon.com/512/219/219983.png'
+        }
     },
     isFetching: false
 }
@@ -22,7 +25,7 @@ const userPageReducer = (userPage = initialState, action) => {
     }
 }
 
-export const setUserPage = (gettedPageInformation) => ({type:'SET-USER-PAGE', gettedPageInformation})
+export const setUserPage = (gettedPageInformation) => ({type: 'SET-USER-PAGE', gettedPageInformation})
 export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleFetching})
 
 export default userPageReducer

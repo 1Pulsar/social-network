@@ -7,7 +7,7 @@ import Overview from "./Overview/Overview";
 import MessagesContainer from "./Messages/MessagesContainer";
 import PostsContentContainer from "./PostsContent/PostsContentContainer";
 import FinderContainer from "./Finder/FinderContainer";
-import UserPageContainer from "./Finder/UserPage/UserPageContainer";
+import UserPageContainer from "./UserPage/UserPageContainer";
 
 const Content = (props) => {
     return (

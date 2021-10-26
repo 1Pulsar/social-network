@@ -4,20 +4,19 @@ import {
     follow,
     setUsers, toggleFetching,
     setTotalCount,
-    unfollow
+    unfollow, toggleFollowing
 } from "../../../Redux/Reducer/FinderPageReducer";
 import React from "react";
-import * as axios from "axios";
 import Finder from "./Finder";
+import {samuraiAPI} from "../../../api/api";
 
 class FinderAPI extends React.Component {
     componentDidMount() {
         this.props.toggleFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
-            .then(response => {
-                this.props.setUsers(response.data.items)
-                this.props.setTotalCount(response.data.totalCount)
+        samuraiAPI.getUsers(this.props.pageSize, this.props.currentPage)
+            .then(data => {
+                this.props.setUsers(data.items)
+                this.props.setTotalCount(data.totalCount)
                 this.props.toggleFetching(false)
             })
     }
@@ -29,11 +28,10 @@ class FinderAPI extends React.Component {
     changeCurrentPage = (p) => {
         this.props.toggleFetching(true)
         this.props.changePage(p)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${p}`)
-            .then(response => {
-                this.props.setUsers(response.data.items)
-                this.props.setTotalCount(response.data.totalCount)
+        samuraiAPI.getUsers(this.props.pageSize, p)
+            .then(data => {
+                this.props.setUsers(data.items)
+                this.props.setTotalCount(data.totalCount)
                 this.props.toggleFetching(false)
             })
     }
@@ -45,7 +43,9 @@ class FinderAPI extends React.Component {
                            totalCount={this.props.totalCount}
                            currentPage={this.props.currentPage}
                            pageSize={this.props.pageSize}
-                           isFetching={this.props.isFetching}/>
+                           isFetching={this.props.isFetching}
+                           toggleFollowing={this.props.toggleFollowing}
+                           followingInProcess={this.props.followingInProcess} />
 
 }
 
@@ -54,10 +54,11 @@ const mapStateToProps = state => ({
     totalCount: state.finderPage.totalCount,
     currentPage: state.finderPage.currentPage,
     pageSize: state.finderPage.pageSize,
-    isFetching: state.finderPage.isFetching
+    isFetching: state.finderPage.isFetching,
+    followingInProcess: state.finderPage.followingInProcess
 })
 
-const dispatchObject = {follow, unfollow, setUsers, setTotalCount, changePage, toggleFetching}
+const dispatchObject = {follow, unfollow, setUsers, setTotalCount, changePage, toggleFetching, toggleFollowing}
 
 const FinderContainer = connect(mapStateToProps, dispatchObject)(FinderAPI)
 
