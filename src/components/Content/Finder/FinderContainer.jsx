@@ -1,24 +1,11 @@
 import {connect} from "react-redux";
-import {
-    changePage,
-    follow,
-    setUsers, toggleFetching,
-    setTotalCount,
-    unfollow, toggleFollowing
-} from "../../../Redux/Reducer/FinderPageReducer";
+import {changePage, toggleFetching, SetUsersThunk, followingButtonThunk} from "../../../Redux/Reducer/FinderPageReducer";
 import React from "react";
 import Finder from "./Finder";
-import {samuraiAPI} from "../../../api/api";
 
 class FinderAPI extends React.Component {
     componentDidMount() {
-        this.props.toggleFetching(true)
-        samuraiAPI.getUsers(this.props.pageSize, this.props.currentPage)
-            .then(data => {
-                this.props.setUsers(data.items)
-                this.props.setTotalCount(data.totalCount)
-                this.props.toggleFetching(false)
-            })
+        this.props.SetUsersThunk(this.props.pageSize, this.props.currentPage)
     }
 
     componentWillUnmount() {
@@ -28,24 +15,17 @@ class FinderAPI extends React.Component {
     changeCurrentPage = (p) => {
         this.props.toggleFetching(true)
         this.props.changePage(p)
-        samuraiAPI.getUsers(this.props.pageSize, p)
-            .then(data => {
-                this.props.setUsers(data.items)
-                this.props.setTotalCount(data.totalCount)
-                this.props.toggleFetching(false)
-            })
+        this.props.SetUsersThunk(this.props.pageSize, p)
     }
 
     render = () => <Finder changeCurrentPage={this.changeCurrentPage}
-                           follow={this.props.follow}
-                           unfollow={this.props.unfollow}
                            users={this.props.users}
                            totalCount={this.props.totalCount}
                            currentPage={this.props.currentPage}
                            pageSize={this.props.pageSize}
                            isFetching={this.props.isFetching}
-                           toggleFollowing={this.props.toggleFollowing}
-                           followingInProcess={this.props.followingInProcess} />
+                           followingInProcess={this.props.followingInProcess}
+                           followingButtonThunk={this.props.followingButtonThunk}/>
 
 }
 
@@ -58,7 +38,7 @@ const mapStateToProps = state => ({
     followingInProcess: state.finderPage.followingInProcess
 })
 
-const dispatchObject = {follow, unfollow, setUsers, setTotalCount, changePage, toggleFetching, toggleFollowing}
+const dispatchObject = {changePage, toggleFetching, SetUsersThunk, followingButtonThunk}
 
 const FinderContainer = connect(mapStateToProps, dispatchObject)(FinderAPI)
 

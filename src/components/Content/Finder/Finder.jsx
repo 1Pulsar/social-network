@@ -2,7 +2,6 @@ import React from "react"
 import st from "./Finder.module.css";
 import Preloader from "../../common/Preloader";
 import {NavLink} from "react-router-dom";
-import {samuraiAPI} from "../../../api/api";
 
 const Finder = (props) => {
 
@@ -18,25 +17,6 @@ const Finder = (props) => {
     const changeCurrentPage = (p) => {
         props.changeCurrentPage(p)
     }
-
-    const followingButton = (isFollowed, id) => {
-        props.toggleFollowing(true, id)
-        if (isFollowed) {
-            samuraiAPI.unfollow(id)
-                .then(data => {
-                    data.resultCode == 0 && props.unfollow(id)
-                    props.toggleFollowing(false, id)
-                })
-        } else {
-            samuraiAPI.follow(id)
-                .then(data => {
-                    data.resultCode == 0 && props.follow(id)
-                    props.toggleFollowing(false, id)
-                })
-        }
-
-    }
-
 
     return <div>
 
@@ -70,9 +50,8 @@ const Finder = (props) => {
                     </div>
                     <div className={st.status}>{u.status}</div>
                 </div>
-                <button disabled={props.followingInProcess.some(id => id === u.id)} onClick={() => {
-                    followingButton(u.followed, u.id)
-                }}
+                <button disabled={props.followingInProcess.some(id => id === u.id)}
+                        onClick={() => { props.followingButtonThunk(u.followed, u.id) }}
                         className={st.button}>{(u.followed) ? 'Unfollow' : 'Follow'}</button>
             </div>
         </div>)}

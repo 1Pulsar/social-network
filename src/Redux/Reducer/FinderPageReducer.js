@@ -1,3 +1,5 @@
+import {samuraiAPI} from "../../api/api";
+
 const initialState = {
     users: [],
     totalCount: 0,
@@ -59,5 +61,33 @@ export const setTotalCount = (totalCount) => ({type: 'SET-TOTAL-COUNT', totalCou
 export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleFetching})
 
 export const toggleFollowing = (isFollowing, id) => ({type: 'IS-FOLLOWING',isFollowing , id})
+
+export const SetUsersThunk = (pageSize, currentPage) => (dispatch) => {
+    dispatch(toggleFetching(true))
+    samuraiAPI.getUsers(pageSize, currentPage)
+        .then(data => {
+            dispatch(setUsers(data.items))
+            dispatch(setTotalCount(data.totalCount))
+            dispatch(toggleFetching(false))
+        })
+    }
+
+export const followingButtonThunk = (isFollowed, id) => (dispatch) => {
+    dispatch(toggleFollowing(true, id))
+    if (isFollowed) {
+        samuraiAPI.unfollow(id)
+            .then(data => {
+                data.resultCode == 0 && dispatch(unfollow(id))
+                dispatch(toggleFollowing(false, id))
+            })
+    } else {
+        samuraiAPI.follow(id)
+            .then(data => {
+                data.resultCode == 0 && dispatch(follow(id))
+                dispatch(toggleFollowing(false, id))
+            })
+    }
+
+}
 
 export default finderPageReducer

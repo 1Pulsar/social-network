@@ -1,20 +1,11 @@
 import React from "react";
-import {setAuthAvatar, setAuthorized, setAuthParams} from "../../../Redux/Reducer/AuthReducer";
+import {authParamsThunk} from "../../../Redux/Reducer/AuthReducer";
 import UserInfo from "./UserInfo";
 import {connect} from "react-redux";
-import {samuraiAPI} from "../../../api/api";
 
 class UserInfoAPI extends React.Component {
     componentDidMount() {
-        samuraiAPI.getMeAuth().then(data => {
-                if (data.resultCode == 0) {
-                    this.props.setAuthorized(true)
-                    this.props.setAuthParams(data.data)
-                    samuraiAPI.getProfile(data.data.id).then(data => {
-                            setAuthAvatar(data.photos.small)
-                    })
-                } else {this.props.setAuthorized(false)}
-            })
+        this.props.authParamsThunk()
     }
 
     render = () => <UserInfo {...this.props} />
@@ -26,6 +17,6 @@ const mapStateToProps = state => ({
   isAuthorized: state.authParams.isAuthorized
 })
 
-const dispatchObject = {setAuthParams, setAuthAvatar, setAuthorized}
+const dispatchObject = {authParamsThunk}
 
 export const UserInfoContainer = connect(mapStateToProps, dispatchObject)(UserInfoAPI)

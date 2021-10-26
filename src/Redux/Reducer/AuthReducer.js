@@ -1,3 +1,5 @@
+import {samuraiAPI} from "../../api/api";
+
 const initialState = {
     id: null,
     login: null,
@@ -22,5 +24,17 @@ const authReducer = (authParams = initialState, action) => {
 export const setAuthParams = (data) => ({type: 'SET-AUTH-PARAMS', data})
 export const setAuthAvatar = (avatar) => ({type:'SET-AUTH-AVATAR', avatar})
 export const setAuthorized = (isAuthorized) => ({type:'SET-AUTHORIZED', isAuthorized})
+
+export const authParamsThunk = () => (dispatch) => {
+    samuraiAPI.getMeAuth().then(data => {
+        if (data.resultCode == 0) {
+            dispatch(setAuthorized(true))
+            dispatch(setAuthParams(data.data))
+            samuraiAPI.getProfile(data.data.id).then(data => {
+                setAuthAvatar(data.photos.small)
+            })
+        } else {dispatch(setAuthorized(false))}
+    })
+}
 
 export default authReducer

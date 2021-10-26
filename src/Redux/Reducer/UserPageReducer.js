@@ -1,3 +1,5 @@
+import {samuraiAPI} from "../../api/api";
+
 const initialState = {
     pageInformation: {
         aboutMe: '',
@@ -27,5 +29,13 @@ const userPageReducer = (userPage = initialState, action) => {
 
 export const setUserPage = (gettedPageInformation) => ({type: 'SET-USER-PAGE', gettedPageInformation})
 export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleFetching})
+
+export const setUserProfile = (userIdFromRouter) => (dispatch) => {
+    dispatch(toggleFetching(true))
+    samuraiAPI.getProfile(userIdFromRouter).then(data => {
+        dispatch(setUserPage(data))
+        dispatch(toggleFetching(false))
+    })
+}
 
 export default userPageReducer
