@@ -5,7 +5,6 @@ const initialState = {
     login: null,
     email: null,
     avatar: null,
-    status: null,
     isAuthorized: false
 }
 
@@ -18,8 +17,7 @@ const authReducer = (authParams = initialState, action) => {
         case 'SET-AUTHORIZED':
             return {...authParams, isAuthorized: action.isAuthorized}
         case 'SET-MY-STATUS':
-        { debugger
-            return {...authParams, status: action.status}}
+            return {...authParams, status: action.status}
         default:
             return authParams
     }
@@ -38,7 +36,9 @@ export const authParamsThunk = () => (dispatch) => {
             profileAPI.getProfile(data.data.id).then(data => {
                 dispatch(setAuthAvatar(data.photos.small))
             })
-
+            profileAPI.getProfileStatus(data.data.id).then(response => {
+                dispatch(setMyStatus(response.data))
+            })
         } else {
             dispatch(setAuthorized(false))
         }

@@ -4,14 +4,17 @@ import postsPageReducer from "./Reducer/PostsPageReducer";
 import finderPageReducer from "./Reducer/FinderPageReducer";
 import userPageReducer from "./Reducer/UserPageReducer";
 import authReducer from "./Reducer/AuthReducer";
+import {reducer as formReducer} from "redux-form";
 import thunkMiddleware from "redux-thunk";
+
 
 let reducers = combineReducers({
     messagesPage: messagePageReducer,
     postsPage: postsPageReducer,
     finderPage: finderPageReducer,
     userPage: userPageReducer,
-    authParams: authReducer
+    authParams: authReducer,
+    form: formReducer
 })
 
 export let store = createStore(reducers, applyMiddleware(thunkMiddleware))

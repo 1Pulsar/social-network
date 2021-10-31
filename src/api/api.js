@@ -32,3 +32,9 @@ export const profileAPI = {
         return instance.put(`profile/status`, { status })
     }
 }
+
+export const loginAPI = {
+    submitLogin(loginObject) {
+        return instance.post(`auth/login`, {})
+    }
+}
