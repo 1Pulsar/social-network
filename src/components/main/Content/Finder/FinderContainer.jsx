@@ -1,5 +1,10 @@
 import {connect} from "react-redux";
-import {changePage, toggleFetching, SetUsersThunk, followingButtonThunk} from "../../../Redux/Reducer/FinderPageReducer";
+import {
+    changePage,
+    toggleFetching,
+    SetUsersThunk,
+    followingButtonThunk
+} from "../../../../Redux/Reducer/FinderPageReducer";
 import React from "react";
 import Finder from "./Finder";
 
@@ -35,7 +40,7 @@ const mapStateToProps = state => ({
     currentPage: state.finderPage.currentPage,
     pageSize: state.finderPage.pageSize,
     isFetching: state.finderPage.isFetching,
-    followingInProcess: state.finderPage.followingInProcess
+    followingInProcess: state.finderPage.followingInProcess,
 })
 
 const dispatchObject = {changePage, toggleFetching, SetUsersThunk, followingButtonThunk}

@@ -1,4 +1,4 @@
-import {samuraiAPI} from "../../api/api";
+import {profileAPI, samuraiAPI} from "../../api/api";
 
 const initialState = {
     pageInformation: {
@@ -32,7 +32,7 @@ export const toggleFetching = (toggleFetching) => ({type: 'IS-FETCHING', toggleF
 
 export const setUserProfile = (userIdFromRouter) => (dispatch) => {
     dispatch(toggleFetching(true))
-    samuraiAPI.getProfile(userIdFromRouter).then(data => {
+    profileAPI.getProfile(userIdFromRouter).then(data => {
         dispatch(setUserPage(data))
         dispatch(toggleFetching(false))
     })

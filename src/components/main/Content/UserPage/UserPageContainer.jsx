@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../../Redux/Reducer/UserPageReducer";
+import {setUserProfile} from "../../../../Redux/Reducer/UserPageReducer";
 import UserPage from "./UserPage";
 import {withRouter} from "react-router-dom";
 

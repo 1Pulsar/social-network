@@ -1,18 +1,14 @@
 import React from 'react'
 import './App.css';
-import ProfileHead from "./components/ProfileHead/ProfileHead";
-import InfoBar from "./components/InfoBar/InfoBar";
-import Content from "./components/Content/Content";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
+import {MainComponentContainer} from "./components/main/MainComponentsContainer";
+import LoginPage from "./components/main/LoginPage/LoginPage";
 
 const App = (props) => {
     return (
         <BrowserRouter>
-            <div className='app-wrapper'>
-                <ProfileHead/>
-                <InfoBar/>
-                <Content />
-            </div>
+            <MainComponentContainer/>
+            <Route path='/login' render={() => <LoginPage/>}/>
         </BrowserRouter>
     );
 }

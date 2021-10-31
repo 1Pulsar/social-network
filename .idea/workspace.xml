@@ -38,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/main" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -51,18 +51,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/main" />
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/components/Content/Messages/Dialogs" />
       <recent name="$PROJECT_DIR$/src/components/Content/AddingNewPost" />
       <recent name="$PROJECT_DIR$/src/components/Content/FullPostPage" />
-      <recent name="$PROJECT_DIR$/src/components/Content/Messages/DialogHead" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/main" />
       <recent name="$PROJECT_DIR$/src/components/Content" />
       <recent name="$PROJECT_DIR$/src/components/Content/PostsContent" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/Profile/ProfileHead" />
-      <recent name="$PROJECT_DIR$/src/components/Profile" />
     </key>
   </component>
   <component name="RunManager">
@@ -94,7 +94,7 @@
       <workItem from="1633363439965" duration="24209000" />
       <workItem from="1634140856494" duration="52475000" />
       <workItem from="1634903545908" duration="4796000" />
-      <workItem from="1635078813013" duration="26460000" />
+      <workItem from="1635078813013" duration="54267000" />
     </task>
     <servers />
   </component>

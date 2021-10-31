@@ -1,6 +1,6 @@
 import React from "react";
 import st from "./UserPage.module.css"
-import Preloader from "../../common/Preloader";
+import Preloader from "../../../common/Preloader";
 
 const UserPage = (props) => {
     return (

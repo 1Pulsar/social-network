@@ -3,7 +3,7 @@ import {
     onHeaderTextareaPostCreator,
     onImageTextareaPostCreator,
     publishPostCreator
-} from "../../../../Redux/Reducer/PostsPageReducer";
+} from "../../../../../Redux/Reducer/PostsPageReducer";
 import React from "react";
 import AddingNewPost from "./AddingNewPost";
 import {connect} from "react-redux";

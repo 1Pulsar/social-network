@@ -1,6 +1,6 @@
 import React from "react"
 import st from "./Finder.module.css";
-import Preloader from "../../common/Preloader";
+import Preloader from "../../../common/Preloader";
 import {NavLink} from "react-router-dom";
 
 const Finder = (props) => {
@@ -51,7 +51,9 @@ const Finder = (props) => {
                     <div className={st.status}>{u.status}</div>
                 </div>
                 <button disabled={props.followingInProcess.some(id => id === u.id)}
-                        onClick={() => { props.followingButtonThunk(u.followed, u.id) }}
+                        onClick={() => {
+                            props.followingButtonThunk(u.followed, u.id)
+                        }}
                         className={st.button}>{(u.followed) ? 'Unfollow' : 'Follow'}</button>
             </div>
         </div>)}

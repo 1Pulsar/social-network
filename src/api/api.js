@@ -16,10 +16,19 @@ export const samuraiAPI = {
     follow(id) {
         return instance.post(`follow/${id}`).then(response => response.data)
     },
+    getMeAuth() {
+        return instance.get(`auth/me`).then(response => response.data)
+    }
+}
+
+export const profileAPI = {
     getProfile(id) {
         return instance.get(`profile/${id}`).then(response => response.data)
     },
-    getMeAuth() {
-        return instance.get(`auth/me`).then(response => response.data)
+    getProfileStatus(id) {
+        return instance.get(`profile/status/${id}`)
+    },
+    changeProfileStatus(status) {
+        return instance.put(`profile/status`, { status })
     }
 }

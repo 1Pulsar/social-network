@@ -1,5 +1,5 @@
 import Messages from "./Messages";
-import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../Redux/Reducer/MessagePageReducer";
+import {onTextareaChangeActionCreator, sendMassageActionCreator} from "../../../../Redux/Reducer/MessagePageReducer";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => ({
