@@ -1,9 +1,11 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
+import {submitLoginDataThunk} from "../../../Redux/Reducer/AuthReducer";
 
 const LoginPage = (props) => {
-    const onSubmit = (formData) => {
-        console.log(formData)
+    const onSubmit = (loginFormData) => {
+        console.log(loginFormData)
+        submitLoginDataThunk(loginFormData)
     }
 
     return (
@@ -17,7 +19,7 @@ const LoginPage = (props) => {
 const LoginForm = (props) => {
     return(
         <form onSubmit={props.handleSubmit}>
-            <Field name={'login'} placeholder={'Login'} component={'input'} />
+            <Field name={'email'} placeholder={'Login'} component={'input'} />
             <Field name={'password'} placeholder={'Password'} component={'input'} />
             <Field name={'rememberMe'} component={'input'} type={'checkbox'} />
             <button>LogIn</button>

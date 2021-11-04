@@ -1,4 +1,3 @@
-
 let initialState = {
     postsData: [
         {
@@ -22,40 +21,24 @@ let initialState = {
             postContent: ''
         }
     ],
-    textareaPostText: '',
-    textareaPostImage: '',
-    textareaPostHeader:''
 }
 
 const postsPageReducer = (postsPage = initialState, action) => {
-        switch (action.type) {
-        case 'POST-CONTENT-TEXTAREA-CHANGES':
-            return {...postsPage, textareaPostText:action.text}
-        case 'POST-IMAGE-TEXTAREA-CHANGES':
-            return {...postsPage, textareaPostImage:action.text}
-        case 'POST-HEADER-TEXTAREA-CHANGES':
-            return {...postsPage, textareaPostHeader:action.text}
+    switch (action.type) {
         case 'PUBLISH-POST':
-            let newPostPushedPage = postsPage
-            if (postsPage.textareaPostText != '' && postsPage.textareaPostHeader != '') {
-                let newPost = {
-                    id: (postsPage.postsData.length + 1),
-                    heading: postsPage.textareaPostHeader,
-                    previewImage: postsPage.textareaPostImage,
-                    postContent: postsPage.textareaPostText
-                }
-                newPostPushedPage = {...postsPage, postsData:[...postsPage.postsData, newPost],
-                    textareaPostHeader:'', textareaPostImage:'', textareaPostText:''}
+            const newPost = {
+                id: (postsPage.postsData.length + 1),
+                heading: action.newPostData.postTitle,
+                previewImage: action.newPostData.postImage,
+                postContent: action.newPostData.postContent
             }
-            return newPostPushedPage
+            return {...postsPage, postsData: [...postsPage.postsData, newPost]}
+
         default:
             return postsPage
     }
 }
 
-export const onHeaderTextareaPostCreator = (text) => ({type:'POST-HEADER-TEXTAREA-CHANGES', text:text})
-export const onContentTextareaPostCreator = (text) => ({type: 'POST-CONTENT-TEXTAREA-CHANGES', text:text})
-export const onImageTextareaPostCreator = (text) => ({type: 'POST-IMAGE-TEXTAREA-CHANGES', text:text})
-export const publishPostCreator = () => ({type: 'PUBLISH-POST'})
+export const publishNewPost = (newPostData) => ({type: 'PUBLISH-POST', newPostData})
 
 export default postsPageReducer

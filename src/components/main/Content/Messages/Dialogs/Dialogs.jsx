@@ -20,8 +20,9 @@ const Dialogs = (props) => {
                 {messagesMapping}
             </div>
             <div className={st.inputArea}>
-                <textarea placeholder='Enter your message' className={st.textInput} onChange={onTextareaChange} value = {props.dialogElement.textareaMassage}></textarea>
-                <button className={st.sendButton} onClick={ sendMassage }>Send</button>
+                <textarea placeholder='Enter your message' className={st.textInput} onChange={onTextareaChange}
+                          value={props.dialogElement.textareaMassage}/>
+                <button className={st.sendButton} onClick={sendMassage}>Send</button>
             </div>
         </div>
 

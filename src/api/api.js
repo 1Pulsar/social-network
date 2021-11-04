@@ -34,7 +34,8 @@ export const profileAPI = {
 }
 
 export const loginAPI = {
-    submitLogin(loginObject) {
-        return instance.post(`auth/login`, {})
+    submitLogin(email, password, rememberMe = false) {
+        return instance.post(`auth/login`, {email: email, password: password,
+            rememberMe: rememberMe}, {})
     }
 }

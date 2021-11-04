@@ -4,15 +4,15 @@
     align-items: flex-start;
 }
 
-.contentChanges {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 30px;
-}
-
 .imgAndHeadChanges {
     width: 100%;
     height: 30px;
+    margin-bottom: 30px;
+}
+
+.contentChanges {
+    width: 100%;
+    height: 200px;
     margin-bottom: 30px;
 }
 

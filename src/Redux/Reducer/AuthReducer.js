@@ -1,4 +1,4 @@
-import {profileAPI, samuraiAPI} from "../../api/api";
+import {loginAPI, profileAPI, samuraiAPI} from "../../api/api";
 
 const initialState = {
     id: null,
@@ -59,5 +59,17 @@ export const newStatusThunk = (status) => (dispatch) => {
             }
         })
 }
+
+export const submitLoginDataThunk = (loginFormData) => (dispatch) => {
+    loginAPI.submitLogin(loginFormData.email, loginFormData.password, loginFormData.rememberMe).then(response => {
+        if(response.data.resultCode === 0) {
+            dispatch(authParamsThunk())
+        } else {
+            alert('Login or pass not correct')
+        }
+    })
+}
+
+
 
 export default authReducer
