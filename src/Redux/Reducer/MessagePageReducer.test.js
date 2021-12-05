@@ -1,4 +1,6 @@
-const initialState = [
+import messagePageReducer, {onTextareaChangeActionCreator} from "./MessagePageReducer";
+
+const state = [
     {
         id: 1, status: 'online', name: 'Jienya12124', avatar: 'https://i.imgur.com/gqJvKwW.png',
         messagesData: [
@@ -63,32 +65,8 @@ const initialState = [
     },
 ]
 
-const messagePageReducer = (messagesPage = initialState, action) => {
-    switch (action.type) {
-        case 'NEW-MESSAGE':
-            let newMessage = {id: 10, abonent: 'in', text: messagesPage[action.id - 1].textareaMassage}
-            {let messagesPageCopy = [...messagesPage]
-            messagesPageCopy[action.id - 1].messagesData = [...messagesPage[action.id - 1].messagesData]
-            messagesPageCopy[action.id - 1].messagesData.push(newMessage)
-            messagesPageCopy[action.id - 1].textareaMassage = ''
-            return messagesPageCopy}
-        case'MESSAGE-TEXTAREA-CHANGES':{
-            let messagesPageCopy = [...messagesPage]
-            messagesPageCopy[action.id - 1].messagesData = [...messagesPage[action.id - 1].messagesData]
-            messagesPageCopy[action.id - 1].textareaMassage = action.text
-            return messagesPageCopy}
-        default:
-            return messagesPage
-    }
-}
+it('Messages text area is correctly changed', () => {
+    const newState = messagePageReducer(state, onTextareaChangeActionCreator('Some changes', 1))
 
-export const sendMassageActionCreator = (id) => {
-    let action = {type: 'NEW-MESSAGE', id: id}
-    return action
-}
-export const onTextareaChangeActionCreator = (text, id) => {
-    let action = {type: 'MESSAGE-TEXTAREA-CHANGES', text: text, id: id}
-    return action
-}
-
-export default messagePageReducer
+    expect(state[0].textareaMassage).toBe('Some changes')
+})

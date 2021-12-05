@@ -1,4 +1,6 @@
-let initialState = {
+import postsPageReducer, {deletePost, publishNewPost} from "./PostsPageReducer";
+
+let state = {
     postsData: [
         {
             id: 1,
@@ -23,25 +25,32 @@ let initialState = {
     ],
 }
 
-const postsPageReducer = (postsPage = initialState, action) => {
-    switch (action.type) {
-        case 'PUBLISH-POST':
-            const newPost = {
-                id: (postsPage.postsData.length),
-                heading: action.newPostData.postTitle,
-                previewImage: action.newPostData.postImage,
-                postContent: action.newPostData.postContent
-            }
-            return {...postsPage, postsData: [...postsPage.postsData, newPost]}
-        case 'DELETE-POST':
-            return {...postsPage, postsData: [...postsPage.postsData.filter(p => (p.id !== action.postId))]}
-        default:
-            return postsPage
-    }
-}
+it('New post should be added', () => {
+    let newState = postsPageReducer(state, publishNewPost({
+        id: state.postsData.length,
+        postTitle: 'Hello, world',
+        postImage: 'Some address',
+        postContent: 'Lorem ipsum dolor em'
+    }))
 
-export const publishNewPost = (newPostData) => ({type: 'PUBLISH-POST', newPostData})
+    expect(newState.postsData.length).toBe(4)
+})
 
-export const deletePost = (postId) => ({type:'DELETE-POST', postId})
+it('New post data is right', () => {
+    let newState = postsPageReducer(state, publishNewPost({
+        id: state.postsData.length,
+        postTitle: 'Hello, world',
+        postImage: 'Some address',
+        postContent: 'Lorem ipsum dolor em'
+    }))
 
-export default postsPageReducer
+    expect(newState.postsData[3].heading).toBe('Hello, world')
+    expect(newState.postsData[3].previewImage).toBe('Some address')
+    expect(newState.postsData[3].postContent).toBe('Lorem ipsum dolor em')
+})
+
+it('Third post is deleted correctly', () => {
+    let newState = postsPageReducer(state, deletePost(3))
+
+    expect(newState.postsData.length).toBe(2)
+})

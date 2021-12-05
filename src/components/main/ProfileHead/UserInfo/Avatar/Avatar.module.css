@@ -1,0 +1,35 @@
+.avatarBlock {
+    grid-area: ava;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ava {
+    height: 150px;
+    border-radius: 200px;
+}
+
+.addAvatarIconBox {
+    position: absolute;
+}
+
+.addAvatarIcon {
+    height: 70px;
+    position: absolute;
+    opacity: .0;
+    top: -35px;
+    left: -35px
+}
+
+.addAvatarIcon:hover {
+    opacity: .6;
+    -webkit-transition: opacity .5s ease .0s;
+    -moz-transition: opacity .5s ease .0s;
+    -o-transition: opacity .5s ease .0s;
+    transition: opacity .5s ease .0s;}
+
+.setAvatarButton {
+    position: absolute;
+    visibility: hidden;
+}

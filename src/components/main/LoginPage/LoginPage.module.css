@@ -1,0 +1,14 @@
+.mainContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitErrorMessage {
+    border: red 1px solid;
+    border-radius: 3px;
+    background-color: #c4c4c4;
+    color: black;
+    margin: 10px;
+}

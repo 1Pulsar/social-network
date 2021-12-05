@@ -38,12 +38,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/main/ProfileHead/UserInfo/Information" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
@@ -51,21 +52,74 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/main/ProfileHead/UserInfo/Information" />
+      <recent name="$PROJECT_DIR$/src/Redux/Reducer" />
       <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/components/main" />
       <recent name="$PROJECT_DIR$/src/components/Content/Messages/Dialogs" />
-      <recent name="$PROJECT_DIR$/src/components/Content/AddingNewPost" />
-      <recent name="$PROJECT_DIR$/src/components/Content/FullPostPage" />
-      <recent name="$PROJECT_DIR$/src/components/Content/Messages/DialogHead" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/common/defaultForms" />
+      <recent name="$PROJECT_DIR$/src/components/main/Content/PostsContent/AddingNewPost/AddNewPostForm" />
+      <recent name="$PROJECT_DIR$/src/components/main" />
+      <recent name="$PROJECT_DIR$/src/components/Content" />
       <recent name="$PROJECT_DIR$/src/components/Content/PostsContent" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/components/Profile/ProfileHead" />
-      <recent name="$PROJECT_DIR$/src/components/Profile" />
-      <recent name="$PROJECT_DIR$/src/components/Navbar" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.Status component.status from props should be in state">
+    <configuration name="Messages text area is correctly changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Redux/Reducer/MessagePageReducer.test.js" />
+      <test-names>
+        <test-name value="Messages text area is correctly changed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="New post data is right" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Redux/Reducer/PostsPageReducer.test.js" />
+      <test-names>
+        <test-name value="New post data is right" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Status component.status from props should be in state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/main/ProfileHead/UserInfo/Information/Status.test.jsx" />
+      <test-names>
+        <test-name value="Status component" />
+        <test-name value="status from props should be in state" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Third post is deleted correctly" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/Redux/Reducer/PostsPageReducer.test.js" />
+      <test-names>
+        <test-name value="Third post is deleted correctly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -78,7 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Status component.status from props should be in state" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.Messages text area is correctly changed" />
+        <item itemvalue="Jest.Third post is deleted correctly" />
+        <item itemvalue="Jest.New post data is right" />
       </list>
     </recent_temporary>
   </component>
@@ -93,6 +151,13 @@
       <workItem from="1633078267433" duration="8686000" />
       <workItem from="1633363439965" duration="24209000" />
       <workItem from="1634140856494" duration="52475000" />
+      <workItem from="1634903545908" duration="4796000" />
+      <workItem from="1635078813013" duration="100490000" />
+      <workItem from="1636724948293" duration="1312000" />
+      <workItem from="1636965190689" duration="5041000" />
+      <workItem from="1637141439541" duration="7322000" />
+      <workItem from="1637310291782" duration="24695000" />
+      <workItem from="1638456198283" duration="22000" />
     </task>
     <servers />
   </component>
