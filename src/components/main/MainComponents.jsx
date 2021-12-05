@@ -6,7 +6,7 @@ import {Redirect} from "react-router-dom";
 import st from "./MainComponents.module.css"
 
 const MainComponents = (props) => {
-    //if (!props.isAuthorized) return <Redirect to='/login'/>
+    if (!props.isAuthorized) return <Redirect to='/login'/>
     return (
         <div className={st.appWrapper}>
             <Redirect to='/finder'/>

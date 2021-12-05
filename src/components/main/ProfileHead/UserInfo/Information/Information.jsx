@@ -7,8 +7,7 @@ const Information = (props) => {
         <div className={st.infoBlock}>
             <h1>{props.login}</h1>
             <p>5 stars</p>
-            <Status status={props.status} statusIsChanged={props.statusIsChanged}
-                    statusEdit={props.statusEdit} statusEditMode={props.statusEditMode} />
+            <Status status={props.status} newStatusThunk={props.newStatusThunk}/>
         </div>
     )
 }

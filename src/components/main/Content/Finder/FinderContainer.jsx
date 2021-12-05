@@ -7,6 +7,13 @@ import {
 } from "../../../../Redux/Reducer/FinderPageReducer";
 import React from "react";
 import Finder from "./Finder";
+import {
+    getCurrentPage,
+    getFollowingInProcess,
+    getIsFetching,
+    getPageSize,
+    getTotalCount, getUsers
+} from "../../../../Redux/Reducer/FinderSelector";
 
 class FinderAPI extends React.Component {
     componentDidMount() {
@@ -34,13 +41,22 @@ class FinderAPI extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
+/*const mapStateToProps = state => ({
     users: state.finderPage.users,
     totalCount: state.finderPage.totalCount,
     currentPage: state.finderPage.currentPage,
     pageSize: state.finderPage.pageSize,
     isFetching: state.finderPage.isFetching,
     followingInProcess: state.finderPage.followingInProcess,
+})*/
+
+const mapStateToProps = state => ({
+    users: getUsers(state),
+    totalCount: getTotalCount(state),
+    currentPage: getCurrentPage(state),
+    pageSize: getPageSize(state),
+    isFetching: getIsFetching(state),
+    followingInProcess: getFollowingInProcess(state)
 })
 
 const dispatchObject = {changePage, toggleFetching, SetUsersThunk, followingButtonThunk}

@@ -9,10 +9,9 @@ const UserInfo = (props) => {
             {props.isAuthorized ? <div className={st.authUserInfo}>
                     <Avatar avatar={props.avatar}/>
                     <Information status={props.status} login={props.login}
-                                 statusIsChanged={props.statusIsChanged}
-                                 statusEdit={props.statusEdit}
-                                 statusEditMode={props.statusEditMode}
+                                 newStatusThunk={props.newStatusThunk}
                     />
+                <button className={st.logoutButton} onClick={props.logoutUserThunk}>LogOut</button>
                 </div> :
                 <NavLink to='/login' className={st.loginButton}>Log in</NavLink>
             }

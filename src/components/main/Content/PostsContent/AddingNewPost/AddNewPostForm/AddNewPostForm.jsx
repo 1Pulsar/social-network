@@ -2,7 +2,7 @@ import React from "react";
 import st from "./AddNewPostForm.module.css";
 import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../../../../common/defaultForms/defaultForms";
-import {isWritten, maxLengthValidCreator} from "../../../../../validstors/reduxFormValidators";
+import {isWritten, maxLengthValidCreator} from "../../../../../validators/reduxFormValidators";
 
 const maxLength20 = (content) => maxLengthValidCreator(20)(content)
 

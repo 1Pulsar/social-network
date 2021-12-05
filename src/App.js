@@ -2,15 +2,34 @@ import React from 'react'
 import './App.css';
 import {BrowserRouter, Route} from "react-router-dom";
 import {MainComponentContainer} from "./components/main/MainComponentsContainer";
-import LoginPage from "./components/main/LoginPage/LoginPage";
+import {LoginPageContainer} from "./components/main/LoginPage/LoginPage";
+import {appInitializationThunk} from "./Redux/Reducer/AppReducer";
+import {connect} from "react-redux";
+import Preloader from "./components/common/Preloader";
 
-const App = (props) => {
-    return (
-        <BrowserRouter>
-            <MainComponentContainer/>
-            <Route path='/login' render={() => <LoginPage/>}/>
-        </BrowserRouter>
-    );
+class App extends React.Component {
+
+    componentDidMount() {
+        this.props.appInitializationThunk()
+    }
+
+    render() {
+
+        if (!this.props.isInitialized) {
+            return <Preloader />
+        }
+
+        return (
+            <BrowserRouter>
+                <MainComponentContainer/>
+                <Route path='/login' render={() => <LoginPageContainer/>}/>
+            </BrowserRouter>
+        );
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    isInitialized: state.appParams.isInitialized
+})
+
+export default connect(mapStateToProps, {appInitializationThunk})(App);

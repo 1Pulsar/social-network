@@ -1,4 +1,4 @@
-import {profileAPI, samuraiAPI} from "../../api/api";
+import {profileAPI} from "../../api/api";
 
 const initialState = {
     pageInformation: {

@@ -1,16 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
-class Status extends React.Component {
-    render() {
-        return (
-            <div>
-                {!this.props.statusEditMode && <p onDoubleClick={() => this.props.statusEdit(true)}>{this.props.status ? this.props.status : 'No status'}</p>}
-                {this.props.statusEditMode &&
-                <input onBlur={() => this.props.statusEdit(false)} onChange={this.props.statusIsChanged} autoFocus={true}
-                       value={this.props.status}/>}
-            </div>
-        )
+function Status(props) {
+
+    const [statusEditMode, isStatusEdit] = useState(false)
+    const [localStorageStatus, changeLocalStorageStatus] = useState(props.status)
+
+    useEffect(() => {
+        changeLocalStorageStatus(props.status)
+    }, [props.status])
+
+    const saveNewStatusToGlobal = () => {
+        isStatusEdit(false)
+        props.newStatusThunk(localStorageStatus)
     }
+
+    const statusOnChange = (event) => {
+        changeLocalStorageStatus(event.target.value)
+    }
+
+    return (
+        <div>
+            {!statusEditMode &&
+            <p onDoubleClick={() => isStatusEdit(true)}>{props.status ? props.status : 'No status'}</p>}
+            {statusEditMode &&
+            <input onBlur={saveNewStatusToGlobal} onChange={statusOnChange} autoFocus={true}
+                   value={localStorageStatus}/>}
+        </div>
+    )
 }
 
 export default Status
