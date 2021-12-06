@@ -39,7 +39,7 @@ export const setAuthParams = (data) => ({type: SET_AUTH_PARAMS, data})
 export const setAuthAvatar = (avatar) => ({type: SET_AUTH_AVATAR, avatar})
 export const setAuthorized = (isAuthorized) => ({type: SET_AUTHORIZED, isAuthorized})
 export const setMyStatus = (status) => ({type: SET_MY_STATUS, status})
-export const SetNewAvatar = (newAvatar) => ({type:SET_NEW_AVATAR, newAvatar})
+export const SetNewAvatar = (newAvatar) => ({type: SET_NEW_AVATAR, newAvatar})
 export const logoutUser = () => ({type: LOGOUT_USER})
 
 export const authParamsThunk = () => (dispatch) => {
@@ -96,8 +96,9 @@ export const logoutUserThunk = () => async (dispatch) => {
 
 export const submitNewAvatarThunk = (newAvatarFile) => async (dispatch) => {
     const data = await profileAPI.changeProfileAvatar(newAvatarFile)
+    debugger
     if (data.resultCode === 0) {
-        dispatch(SetNewAvatar(newAvatarFile))
+        dispatch(SetNewAvatar(data.data.photos.large))
     } else {
         alert()
     }

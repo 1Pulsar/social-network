@@ -4,8 +4,8 @@ import defaultUserAvatar from '../../../../../images/defaultUserAvatar.png'
 import plusIcon from '../../../../../images/plusIcon.png'
 
 const Avatar = (props) => {
-    onAvatarSelected (e) => {
-        e.target.files[0]
+    const onAvatarSelected = (e) => {
+        props.submitNewAvatarThunk(e.target.files[0])
     }
     return (
         <div className={st.avatarBlock}>

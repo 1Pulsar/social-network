@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 const UserInfo = (props) => {
     return (<div className={st.infoBlock}>
             {props.isAuthorized ? <div className={st.authUserInfo}>
-                    <Avatar avatar={props.avatar}/>
+                    <Avatar avatar={props.avatar} submitNewAvatarThunk={props.submitNewAvatarThunk}/>
                     <Information status={props.status} login={props.login}
                                  newStatusThunk={props.newStatusThunk}
                     />

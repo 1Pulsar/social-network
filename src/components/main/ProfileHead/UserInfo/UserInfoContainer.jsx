@@ -3,7 +3,8 @@ import {
     authParamsThunk,
     newStatusThunk,
     getMyStatusThunk,
-    logoutUserThunk
+    logoutUserThunk,
+    submitNewAvatarThunk
 } from "../../../../Redux/Reducer/AuthReducer";
 import UserInfo from "./UserInfo";
 import {connect} from "react-redux";
@@ -24,7 +25,8 @@ class UserInfoAPI extends React.Component {
     render = () => <UserInfo status={this.props.status} newStatusThunk={this.props.newStatusThunk}
                              login={this.props.login} avatar={this.props.avatar}
                              isAuthorized={this.props.isAuthorized}
-                             logoutUserThunk={this.props.logoutUserThunk} />
+                             logoutUserThunk={this.props.logoutUserThunk}
+                             submitNewAvatarThunk={this.props.submitNewAvatarThunk} />
 }
 
 const mapStateToProps = state => ({
@@ -35,6 +37,6 @@ const mapStateToProps = state => ({
     id: state.authParams.id
 })
 
-const dispatchObject = {authParamsThunk, newStatusThunk, getMyStatusThunk, logoutUserThunk}
+const dispatchObject = {authParamsThunk, newStatusThunk, getMyStatusThunk, logoutUserThunk, submitNewAvatarThunk}
 
 export const UserInfoContainer = connect(mapStateToProps, dispatchObject)(UserInfoAPI)
