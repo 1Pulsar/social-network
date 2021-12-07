@@ -16,10 +16,30 @@
     text-decoration: none;
     color: black;
 }
+
+.logoutIcon {
+    width: 35px;
+}
+
 .activeLink {
     background-color: #c4c4c4;
 }
 
 .item:hover {
     background-color: lightgray;
+}
+
+.logoutButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    transition: background-color .5s ease;
+    text-decoration: none;
+    color: black;
+}
+
+.logoutButton:hover {
+    background-color: rgb(255, 205, 205);
 }

@@ -96,7 +96,6 @@ export const logoutUserThunk = () => async (dispatch) => {
 
 export const submitNewAvatarThunk = (newAvatarFile) => async (dispatch) => {
     const data = await profileAPI.changeProfileAvatar(newAvatarFile)
-    debugger
     if (data.resultCode === 0) {
         dispatch(SetNewAvatar(data.data.photos.large))
     } else {
