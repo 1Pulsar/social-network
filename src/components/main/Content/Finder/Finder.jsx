@@ -1,7 +1,7 @@
 import React from "react"
 import st from "./Finder.module.css";
 import Preloader from "../../../common/Preloader";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import defaultUserAvatar from "../../../../images/defaultUserAvatar.png"
 
 const Finder = (props) => {
@@ -21,43 +21,45 @@ const Finder = (props) => {
 
     return <div>
 
-        <div className={st.pagination}>
 
-            {pagesArray[0] > 1 ? <span onClick={() => changeCurrentPage(1)}>1..</span> : ''}
-
-            {pagesArray.map(p => <span className={p === props.currentPage ? st.currentPage : ''}
-                                       onClick={() => changeCurrentPage(p)}>{p} </span>)}
-
-            {pagesArray[pagesArray.length - 1] < totalPages - 2 ? <span
-                onClick={() => changeCurrentPage(totalPages)}> ..{totalPages}</span> : ''}
-
-            {props.isFetching ? <Preloader/> : null}
-
-        </div>
 
         {props.users.map(u => <div className={st.userItem}>
-            <NavLink to={`/user/${u.id}`} style={{textDecoration: "none"}}>
+            <NavLink to={`/user/${u.id}`} style={{ textDecoration: "none" }}>
                 <img className={st.profileImg}
-                     src={u.photos.small != null ? u.photos.small : defaultUserAvatar}/>
+                    src={u.photos.small != null ? u.photos.small : defaultUserAvatar} />
             </NavLink>
             <div className={st.itemBlock}>
                 <div className={st.userInfo}>
                     <div>
                         <div>
                             <NavLink to={`/user/${u.id}`}
-                                     style={{textDecoration: "none", color: "black"}}>{u.name}</NavLink>
+                                style={{ textDecoration: "none", color: "black" }}>{u.name}</NavLink>
                         </div>
                         <div className={st.location}>u.location.city, u.location.country</div>
                     </div>
                     <div className={st.status}>{u.status}</div>
                 </div>
                 <button disabled={props.followingInProcess.some(id => id === u.id)}
-                        onClick={() => {
-                            props.followingButtonThunk(u.followed, u.id)
-                        }}
-                        className={st.button}>{(u.followed) ? 'Unfollow' : 'Follow'}</button>
+                    onClick={() => {
+                        props.followingButtonThunk(u.followed, u.id)
+                    }}
+                    className={st.button}>{(u.followed) ? 'Unfollow' : 'Follow'}</button>
             </div>
         </div>)}
+
+        <div className={st.pagination}>
+
+            {pagesArray[0] > 1 ? <span onClick={() => changeCurrentPage(1)}>1..</span> : ''}
+
+            {pagesArray.map(p => <span className={p === props.currentPage ? st.currentPage : ''}
+                onClick={() => changeCurrentPage(p)}>{p} </span>)}
+
+            {pagesArray[pagesArray.length - 1] < totalPages - 2 ? <span
+                onClick={() => changeCurrentPage(totalPages)}> ..{totalPages}</span> : ''}
+
+            {props.isFetching ? <Preloader /> : null}
+
+        </div>
     </div>
 }
 

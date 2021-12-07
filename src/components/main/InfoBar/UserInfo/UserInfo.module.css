@@ -1,0 +1,12 @@
+.authUserInfo {
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    grid-template-areas: 'ava' 'inf';
+    color: white;
+}
+
+.userName {
+    text-align: center;
+    width: 100%;
+    background-color: rgba(63, 63, 63, 0.5);;
+}
