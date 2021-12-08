@@ -14,7 +14,7 @@ const Navbar = ({logoutUserThunk}) => {
             <NavLink className={st.item} activeClassName={st.activeLink} to='/media'>Media</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/posts'>Posts</NavLink>
             <NavLink className={st.item} activeClassName={st.activeLink} to='/settings'>Settings</NavLink>
-            <a className={st.item, st.logoutButton} activeClassName={st.activeLink} onClick={logoutUserThunk}>
+            <a className={st.item, st.logoutButton} onClick={logoutUserThunk}>
                 Logout
                 <img src={logoutIcon} className={st.logoutIcon}/>
             </a>

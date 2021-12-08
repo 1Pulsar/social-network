@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows:1fr;
     grid-template-areas:'n';
-    border: rgb(197, 197, 197) 1px solid;
+    border: rgba(255, 255, 255, 0.274) 1px solid;
     position: sticky;
     top: 0px;
 }

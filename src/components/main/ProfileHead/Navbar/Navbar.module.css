@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color: #ffffff;
+    background-color: rgba(18, 0, 19, 0.568);
     display: flex;
     flex-flow: row;
     justify-content: flex-start;
@@ -14,7 +14,7 @@
     height: 100%;
     transition: background-color .5s ease;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .logoutIcon {
@@ -22,11 +22,11 @@
 }
 
 .activeLink {
-    background-color: #c4c4c4;
+    background-color: #000000;
 }
 
 .item:hover {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.644);
 }
 
 .logoutButton {
@@ -37,9 +37,9 @@
     height: 100%;
     transition: background-color .5s ease;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .logoutButton:hover {
-    background-color: rgb(255, 205, 205);
+    background-color: rgba(90, 0, 0, 0.658);
 }

@@ -1,5 +1,4 @@
 .avatarBlock {
-    grid-area: ava;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -2,8 +2,6 @@ import React from 'react'
 import st from './UserInfo.module.css'
 import Avatar from "./Avatar/Avatar";
 import Information from "./Information/Information";
-import { NavLink } from "react-router-dom";
-import Status from "./Information/Status";
 
 const UserInfo = (props) => {
     return (<div>

@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import st from "./Status.module.css"
 
-function Status(props) {
+const Status = (props) => {
 
     const [statusEditMode, isStatusEdit] = useState(false)
     const [localStorageStatus, changeLocalStorageStatus] = useState(props.status)
@@ -21,10 +22,10 @@ function Status(props) {
     return (
         <div>
             {!statusEditMode &&
-            <p onDoubleClick={() => isStatusEdit(true)}>{props.status ? props.status : 'No status'}</p>}
+                <p className={st.statusText} onDoubleClick={() => isStatusEdit(true)}>{props.status ? props.status : 'No status'}</p>}
             {statusEditMode &&
-            <input onBlur={saveNewStatusToGlobal} onChange={statusOnChange} autoFocus={true}
-                   value={localStorageStatus}/>}
+                <div className={st.inputWrapper}><input className={st.statusInput} onBlur={saveNewStatusToGlobal} onChange={statusOnChange} autoFocus={true}
+                    value={localStorageStatus} /></div>}
         </div>
     )
 }

@@ -10,11 +10,11 @@ const Avatar = (props) => {
     return (
         <div className={st.avatarBlock}>
             <div className={st.addAvatarIconBox}>
-                <input className={st.setAvatarButton} type="file" id="setAvatarFile" onChange={onAvatarSelected}/>
-                <label htmlFor="setAvatarFile"><img src={plusIcon} alt='Add avatar Icon' className={st.addAvatarIcon}/></label>
+                <input className={st.setAvatarButton} type="file" id="setAvatarFile" onChange={onAvatarSelected} />
+                <label htmlFor="setAvatarFile"><img src={plusIcon} alt='Add avatar Icon' className={st.addAvatarIcon} /></label>
             </div>
             <img className={st.ava}
-                 src={props.avatar ? props.avatar : defaultUserAvatar}/>
+                src={props.avatar ? props.avatar : defaultUserAvatar} />
         </div>
     )
 }

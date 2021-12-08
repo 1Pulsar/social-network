@@ -1,0 +1,22 @@
+.statusInput {
+    position: relative;
+    top: 15px;
+    border: 1px solid #cccccc;
+   border-radius: 3px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   background: #ffffff83 !important;
+   outline: none;
+   height: 20px;
+   width: 120px;
+   color: #000000;
+}
+
+.inputWrapper {
+    height: 57px;
+}
+
+.statusText {
+    height: 25px;
+}

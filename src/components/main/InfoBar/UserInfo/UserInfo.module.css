@@ -1,7 +1,7 @@
 .authUserInfo {
     display: grid;
-    grid-template-rows: 200px 1fr;
-    grid-template-areas: 'ava' 'inf';
+    grid-template-rows: 220px 1fr;
+    grid-template-areas: 'name-and-ava' 'inf';
     color: white;
 }
 
@@ -9,4 +9,8 @@
     text-align: center;
     width: 100%;
     background-color: rgba(63, 63, 63, 0.5);;
+}
+
+.mainInformation {
+    grid-area: name-and-ava;
 }

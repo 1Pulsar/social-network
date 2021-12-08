@@ -5,4 +5,15 @@
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
+    text-align: center;
+}
+
+.tildaImage {
+    width: 40px;
+    margin: 30px, 0;
+}
+
+.longTextField {
+    width: 250px;
+    text-align: center;
 }
