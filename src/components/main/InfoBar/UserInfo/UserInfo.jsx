@@ -7,7 +7,7 @@ const UserInfo = (props) => {
     return (<div>
         {props.isAuthorized && <div className={st.authUserInfo}>
             <div className={st.mainInformation}>
-                <h1 className={st.userName}>{props.login}</h1>
+                <div className={st.userName}><h1>⚡️{props.login}⚡️</h1></div>
                 <Avatar avatar={props.avatar} submitNewAvatarThunk={props.submitNewAvatarThunk} />
             </div>
             <Information status={props.status} login={props.login}

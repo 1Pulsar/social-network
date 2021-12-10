@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .5s ease;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.activeLink {
+    background-color: #000000;
+}
+
+.item:hover {
+    background-color: rgba(211, 211, 211, 0.644);
+}

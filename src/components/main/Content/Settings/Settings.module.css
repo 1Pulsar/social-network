@@ -1,0 +1,17 @@
+.content {
+    display: grid;
+    grid-template-areas: 'settings-menu settings-params';
+    grid-template-columns: 2fr 5fr;
+    color: blanchedalmond;
+    background-color: rgba(32, 54, 54, 0.342);
+    border: rgb(85, 85, 85) 1px solid;
+}
+
+.settingsCategoryWrapper {
+    grid-area: settings-menu;
+    border-right: rgb(85, 85, 85) 1px solid;;
+}
+
+.settingsParametersWrapper {
+    grid-area: settings-params;
+}

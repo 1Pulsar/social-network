@@ -7,8 +7,7 @@
 
 .userName {
     text-align: center;
-    width: 100%;
-    background-color: rgba(63, 63, 63, 0.5);;
+    color: rgb(0, 0, 0);
 }
 
 .mainInformation {
