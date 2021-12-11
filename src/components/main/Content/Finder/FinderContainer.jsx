@@ -41,15 +41,6 @@ class FinderAPI extends React.Component {
 
 }
 
-/*const mapStateToProps = state => ({
-    users: state.finderPage.users,
-    totalCount: state.finderPage.totalCount,
-    currentPage: state.finderPage.currentPage,
-    pageSize: state.finderPage.pageSize,
-    isFetching: state.finderPage.isFetching,
-    followingInProcess: state.finderPage.followingInProcess,
-})*/
-
 const mapStateToProps = state => ({
     users: getUsers(state),
     totalCount: getTotalCount(state),

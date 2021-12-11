@@ -3,11 +3,10 @@ import {
     authParamsThunk,
     newStatusThunk,
     getMyStatusThunk,
-    logoutUserThunk,
     submitNewAvatarThunk
 } from "../../../../Redux/Reducer/AuthReducer";
 import UserInfo from "./UserInfo";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 class UserInfoAPI extends React.Component {
     componentDidMount() {
@@ -23,10 +22,13 @@ class UserInfoAPI extends React.Component {
     }
 
     render = () => <UserInfo status={this.props.status} newStatusThunk={this.props.newStatusThunk}
-                             login={this.props.login} avatar={this.props.avatar}
-                             isAuthorized={this.props.isAuthorized}
-                             logoutUserThunk={this.props.logoutUserThunk}
-                             submitNewAvatarThunk={this.props.submitNewAvatarThunk} />
+        login={this.props.login} avatar={this.props.avatar}
+        isAuthorized={this.props.isAuthorized}
+        submitNewAvatarThunk={this.props.submitNewAvatarThunk}
+        aboutMe={this.props.aboutMe}
+        contacts={this.props.contacts}
+        lookingForAJob={this.props.lookingForAJob}
+        lookingForAJobDescription={this.props.lookingForAJobDescription} />
 }
 
 const mapStateToProps = state => ({
@@ -34,9 +36,13 @@ const mapStateToProps = state => ({
     avatar: state.authParams.avatar,
     isAuthorized: state.authParams.isAuthorized,
     status: state.authParams.status,
-    id: state.authParams.id
+    id: state.authParams.id,
+    aboutMe: state.authParams.aboutMe,
+    contacts: state.authParams.contacts,
+    lookingForAJob: state.authParams.lookingForAJob,
+    lookingForAJobDescription: state.authParams.lookingForAJobDescription
 })
 
-const dispatchObject = {authParamsThunk, newStatusThunk, getMyStatusThunk, logoutUserThunk, submitNewAvatarThunk}
+const dispatchObject = { authParamsThunk, newStatusThunk, getMyStatusThunk, submitNewAvatarThunk }
 
 export const UserInfoContainer = connect(mapStateToProps, dispatchObject)(UserInfoAPI)

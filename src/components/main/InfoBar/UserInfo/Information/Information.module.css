@@ -1,0 +1,29 @@
+.infoBlock {
+    grid-area: inf;
+    color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.tildaImage {
+    width: 40px;
+    margin: 30px, 0;
+}
+
+.longTextField {
+    width: 250px;
+    text-align: center;
+}
+
+.contactIconsWrapper {
+    background-color: rgba(255, 235, 205, 0.459);
+    border-radius: 20px;
+}
+
+.contactIconsWrapper > a > img {
+    width: 25px;
+    margin: 5px;
+}

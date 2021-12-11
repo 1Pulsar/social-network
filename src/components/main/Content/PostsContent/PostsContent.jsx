@@ -8,7 +8,7 @@ const FullPostPage = React.lazy(() => import ('./FullPostPage/FullPostPage'))
 
 const PostsContent = (props) => {
     let postsMapped = props.postsPage.postsData
-        .map(p => <Route path={`/posts/${p.id}`} render={SuspenseWrapper(() => <FullPostPage postData={p}/>)}/>)
+        .map(p => <Route key={p.id} path={`/posts/${p.id}`} render={SuspenseWrapper(() => <FullPostPage postData={p}/>)}/>)
     return (
         <div>
             <Route exact path='/posts' render={SuspenseWrapper(() => <Posts postsPage={props.postsPage}/>)}/>

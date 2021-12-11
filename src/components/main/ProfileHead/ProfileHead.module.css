@@ -1,8 +1,9 @@
 .profileHead {
     grid-area: h;
-    margin-top: 30px;
     display: grid;
-    grid-template-rows: 4fr 1fr;
-    grid-template-areas: 'u' 'n';
-    border: rgb(197, 197, 197) 1px solid;
+    grid-template-rows:1fr;
+    grid-template-areas:'n';
+    border: rgba(255, 255, 255, 0.274) 1px solid;
+    position: sticky;
+    top: 0px;
 }

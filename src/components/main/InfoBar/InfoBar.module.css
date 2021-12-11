@@ -1,5 +1,12 @@
 .infoBar {
     grid-area: i;
-    background-color: darkblue;
-    min-height: 500px;
+    background-color: rgb(255, 255, 255);
+    height: 828px;
+    border: 1px rgb(58, 58, 58) solid;
+    border-radius: 2px;
+    background-image: url('https://wallpapercave.com/wp/wp5437795.jpg');
+    background-size: cover;
+    background-clip: content-box;
+    background-position: 0 0;
+    margin-bottom: 20px;
 }

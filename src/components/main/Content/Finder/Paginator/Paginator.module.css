@@ -1,0 +1,17 @@
+.pagination {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.pagination > span {
+    border: #232323 solid 1px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 0 2px;
+    text-align: center;
+}
+
+.currentPage {
+    font-weight: bold;
+}

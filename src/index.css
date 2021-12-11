@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fcebdc;
+  background-color: #0e2850;
+  background-image: url('https://img3.goodfon.ru/original/1280x800/2/6d/abstrakciya-temnye-minimalizm.jpg');
+  background-size: cover;
+  background-clip: content-box;
 }
 
 code {
